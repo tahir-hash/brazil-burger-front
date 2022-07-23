@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "mtm",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
