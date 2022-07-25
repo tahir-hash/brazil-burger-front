@@ -1,7 +1,7 @@
 <section>
     <div class="qty">
-        <button class="qtyminus" aria-hidden="true">&minus;</button>
-        <input type="number" name="qty" id="qty" min="1" step="1" value="1">
-        <button class="qtyplus" aria-hidden="true">&plus;</button>
+        <button class="qtyminus" aria-hidden="true" (click)="qtyminus(qte)">&minus;</button>
+        <input type="number" #qte  name="qty" id="qty" min="1" step="1" value="1">
+        <button (click)="qtyplus(qte)" class="qtyplus" aria-hidden="true">&plus;</button>
     </div>
 </section>

@@ -1,0 +1,15 @@
+.icons button
+{
+    margin-left: 3%;
+}
+button
+{
+    background-color: #D4401F;
+    color: white;
+    border-radius: 12px;
+    border: none;
+}
+.contain-cart
+{
+    height: auto;
+}

@@ -12,7 +12,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'products',
     pathMatch:'full'
-  }
+  },
+  { path: 'commande', loadChildren: () => import('./commande/commande.module').then(m => m.CommandeModule) }
 ];
 
 @NgModule({

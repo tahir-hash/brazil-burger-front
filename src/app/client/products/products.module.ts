@@ -13,6 +13,7 @@ import { AddCartComponent } from './components/add-cart/add-cart.component';
 import { BoissonsComponent } from './components/boissons/boissons.component';
 import { TailleBoissonsComponent } from './components/taille-boissons/taille-boissons.component';
 import { DetailsDescComponent } from './components/details-desc/details-desc.component';
+import { LayoutModule } from 'src/app/layout/layout.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { DetailsDescComponent } from './components/details-desc/details-desc.com
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    RouterModule
+    RouterModule,
+    LayoutModule
   ]
 })
 export class ProductsModule { }

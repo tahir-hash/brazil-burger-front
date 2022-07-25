@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ClientRoutingModule } from './client-routing.module';
 import { ClientComponent } from './client.component';
 import { RouterModule } from '@angular/router';
+import { LayoutModule } from '../layout/layout.module';
 
 
 @NgModule({
@@ -13,7 +14,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ClientRoutingModule,
-    RouterModule,
+    RouterModule
+  ],
+  exports: [
+    LayoutModule
   ]
 })
 export class ClientModule { }
