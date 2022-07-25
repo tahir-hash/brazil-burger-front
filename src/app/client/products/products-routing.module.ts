@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatalogueComponent } from './catalogue/catalogue.component';
+import { CatalogueComponent } from './pages/catalogue/catalogue.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'catalogue',
     pathMatch: 'full',
+  },
+  {
+    path: 'details/:id',
+    component: DetailsComponent,
   },
 ];
 

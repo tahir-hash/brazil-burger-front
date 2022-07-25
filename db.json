@@ -1,0 +1,40 @@
+{
+    "menus": [
+        {
+            "id": 1,
+            "image": "https://fakeimg.pl/279x158/",
+            "titre": "Menu Simple",
+            "prix": 1500
+        },
+        {
+            "id": 2,
+            "image": "https://fakeimg.pl/279x158/",
+            "titre": "Menu Double",
+            "prix": 2500
+        },
+        {
+            "id": 3,
+            "image": "https://fakeimg.pl/279x158/",
+            "titre": "Menu Simple",
+            "prix": 1500
+        },
+        {
+            "id": 4,
+            "image": "https://fakeimg.pl/279x158/",
+            "titre": "Menu Mbaye",
+            "prix": 1000
+        },
+        {
+            "id": 5,
+            "image": "https://fakeimg.pl/279x158/",
+            "titre": "Menu Diouf",
+            "prix": 2000
+        },
+        {
+            "id": 6,
+            "image": "https://fakeimg.pl/279x158/",
+            "titre": "Menu Dakar",
+            "prix": 5000
+        }
+    ]
+}

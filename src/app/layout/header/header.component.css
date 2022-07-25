@@ -6,24 +6,29 @@
 {
     color: white;
 }
-.header-cart {
-    position:relative;
-    margin-right:40px;
-  }
-  .header-cart i {
-    width: 40px;
-}
 
-.header-cart span {
-background-color: black;
-color: #fff;
-position: absolute;
-width: 24px;
-height: 20px;
-top: -5px;
-right: -15px;
-text-align: center;
-font-size: 12px;
-padding-top: 6px;
-border-radius:100%;
+/* .nav-item span 
+{
+    background-color: red;
+    color: #fff;
+    position: absolute;
+    width: 24px;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 6px;
+    border-radius:100%;
+} */
+.header
+{
+    margin-top: 2%;
+}
+.profile
+{
+    border: 1px solid white;
+    width: 7%;
+}
+.profile h1
+{
+    font-size: 23px;        
 }
