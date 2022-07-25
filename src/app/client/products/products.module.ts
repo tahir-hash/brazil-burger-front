@@ -10,6 +10,9 @@ import { CountComponent } from './components/count/count.component';
 import { CompositionComponent } from './components/composition/composition.component';
 import { RouterModule } from '@angular/router';
 import { AddCartComponent } from './components/add-cart/add-cart.component';
+import { BoissonsComponent } from './components/boissons/boissons.component';
+import { TailleBoissonsComponent } from './components/taille-boissons/taille-boissons.component';
+import { DetailsDescComponent } from './components/details-desc/details-desc.component';
 
 
 @NgModule({
@@ -21,6 +24,9 @@ import { AddCartComponent } from './components/add-cart/add-cart.component';
     CountComponent,
     CompositionComponent,
     AddCartComponent,
+    BoissonsComponent,
+    TailleBoissonsComponent,
+    DetailsDescComponent,
   ],
   imports: [
     CommonModule,

@@ -2,41 +2,34 @@
 {
     width: 80%;
 }
-.info
-{
-    width: 100%;
-}
-.info-sub
-{
-    width: 60%;
 
-}
-.title
-{
-    width: 100%;
-}
-.title h2
-{
-    font-weight: bold;
-    font-size: 32;
-}
-.composition
+.composition, .choice
 {
     width: 50%;
     border: 1px solid #D4401F;
     border-radius: 10px;
-    overflow-x: scroll;
     position: relative;
-    scrollbar-color: #d5ac68 #f1db9d;
-     scrollbar-width: thin;
-    -ms-overflow-style: none;
     left: 25%;
 }
-
+.composition, .choice
+{
+  scrollbar-color: #d5ac68 #f1db9d;
+   scrollbar-width: thin;
+  -ms-overflow-style: none;
+}
+.composition
+{
+  overflow-x: scroll;
+}
+.choice
+{
+  height: 400px;
+  overflow-y: scroll;
+}
 
 /* custom scrol */
 .composition::-webkit-scrollbar {
-    height: 10px;
+    height: 2px;
   }
   
   .composition::-webkit-scrollbar-thumb {

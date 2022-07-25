@@ -19,8 +19,7 @@
     display: flex;
     flex-wrap: wrap;
 }
-.icons
+.icons a
 {
-    width: 50%;
-    text-align: center;
+    margin-left: 5%;
 }
