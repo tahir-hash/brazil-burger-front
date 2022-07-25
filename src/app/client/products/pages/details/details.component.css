@@ -1,0 +1,53 @@
+.container
+{
+    width: 80%;
+}
+.info
+{
+    width: 100%;
+}
+.info-sub
+{
+    width: 60%;
+
+}
+.title
+{
+    width: 100%;
+}
+.title h2
+{
+    font-weight: bold;
+    font-size: 32;
+}
+.composition
+{
+    width: 50%;
+    border: 1px solid #D4401F;
+    border-radius: 10px;
+    overflow-x: scroll;
+    position: relative;
+    scrollbar-color: #d5ac68 #f1db9d;
+     scrollbar-width: thin;
+    -ms-overflow-style: none;
+    left: 25%;
+}
+
+
+/* custom scrol */
+.composition::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  .composition::-webkit-scrollbar-thumb {
+    height: 5px;
+    background-color: #D4401F;
+  }
+  
+  .composition::-webkit-scrollbar-thumb:hover {
+    background-color: #f3ac9c;
+  }
+  
+  .composition::-webkit-scrollbar:vertical {
+    display: none;
+  }
