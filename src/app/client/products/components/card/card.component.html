@@ -1,10 +1,10 @@
 <div class="card mb-4">
-    <img class="mx-auto mt-2" src="https://fakeimg.pl/279x158/" width="80%" height="158"/>
+    <img class="mx-auto mt-2" src="{{produits?.image}}" width="80%" height="158"/>
     <div class="card-body">
-        <h2 class="card-title text-center burg">Burger</h2>
+        <h2 class="card-title text-center burg">{{produits?.nom}}</h2>
         <div class="d-flex justify-content-between">
-            <h4 class="prix">2000 FCFA</h4>
-            <i class="fa-solid fa-cart-plus fa-2x cart" [routerLink]='["/client/products/details/1"]'></i>
+            <h4 class="prix">{{produits?.prix}}</h4>
+            <i class="fa-solid fa-cart-plus fa-2x cart" [routerLink]='["/client/products/details/{{produits?.id}}"]'></i>
         </div>
     </div>
 </div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Produit } from '../../shared/models/produit';
+import { ProduitService } from '../../shared/services/produit.service';
 
 @Component({
   selector: 'mtm-catalogue',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalogue.component.css']
 })
 export class CatalogueComponent implements OnInit {
-
-  constructor() { }
+  produits$ : Observable<Produit[]> | null = null;
+  constructor(private service:ProduitService) { }
 
   ngOnInit(): void {
+    this.produits$ = this.service.all$();
   }
 
+  onfilterProduct(type:string)
+  {
+    
+  }
 }

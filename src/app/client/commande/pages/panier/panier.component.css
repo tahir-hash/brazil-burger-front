@@ -11,5 +11,15 @@ button
 }
 .contain-cart
 {
-    height: auto;
+    width: 90%;
+    height: fit-content;
 }
+.resume
+{
+    height: fit-content;
+}
+.contain
+{
+    grid-template-columns: 3fr 1fr;
+}
+
