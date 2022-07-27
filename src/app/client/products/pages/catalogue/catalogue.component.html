@@ -6,8 +6,8 @@
 </div>
 <div class="container mt-5">
     <div class="icons d-flex justify-content-center mb-5 fixed">
-        <a class="text-black " (click)="onfilterProduct('burger')" href=""><i class="fa-solid fa-burger fa-3x"></i></a>
-        <a class="text-black" (click)="onfilterProduct('menu')" href=""> <i class="fa-solid fa-utensils fa-3x"></i></a>
+        <a class="text-black " (click)="onfilterProduct('burger')"><i class="fa-solid fa-burger fa-3x"></i></a>
+        <a class="text-black" (click)="onfilterProduct('menu')"> <i class="fa-solid fa-utensils fa-3x"></i></a>
     </div>
    <div class="row">
     <div *ngFor="let Produit of produits$|async"  class="card-all">

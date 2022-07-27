@@ -1,88 +1,89 @@
 {
-    "catalogue": [
-            {
-                "id": 1,
-                "type": "burger",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "burger Simple",
-                "prix": 1500
-            },
-            {
-                "id": 2,
-                "type": "burger",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "burger Double",
-                "prix": 2500
-            },
-            {
-                "id": 3,
-                "type": "burger",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "burger Simple",
-                "prix": 1500
-            },
-            {
-                "id": 4,
-                "type": "burger",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "burger Mbaye",
-                "prix": 1000
-            },
-            {
-                "id": 5,
-                "type": "burger",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "burger Diouf",
-                "prix": 2000
-            },
-            {
-                "id": 6,
-                "type": "burger",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "burger Dakar",
-                "prix": 5000
-            },
-            {
-                "id": 1,
-                "type": "menu",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "Menu Simple",
-                "prix": 1500
-            },
-            {
-                "id": 2,
-                "type": "menu",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "Menu Double",
-                "prix": 2500
-            },
-            {
-                "id": 3,
-                "type": "menu",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "Menu Simple",
-                "prix": 1500
-            },
-            {
-                "id": 4,
-                "type": "menu",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "Menu Mbaye",
-                "prix": 1000
-            },
-            {
-                "id": 5,
-                "type": "menu",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "Menu Diouf",
-                "prix": 2000
-            },
-            {
-                "id": 6,
-                "type": "menu",
-                "image": "https://fakeimg.pl/279x158/",
-                "nom": "Menu Dakar",
-                "prix": 5000
-            }
-    ]
+  "catalogue": [
+    {
+      "id": 1,
+      "type": "burger",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "burger Simple",
+      "prix": 1500
+    },
+    {
+      "id": 2,
+      "type": "burger",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "burger Double",
+      "prix": 2500
+    },
+    {
+      "id": 3,
+      "type": "burger",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "burger Simple",
+      "prix": 1500
+    },
+    {
+      "id": 4,
+      "type": "burger",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "burger Mbaye",
+      "prix": 1000
+    },
+    {
+      "id": 5,
+      "type": "burger",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "burger Diouf",
+      "prix": 2000
+    },
+    {
+      "id": 6,
+      "type": "burger",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "burger Dakar",
+      "prix": 5000
+    },
+
+    {
+      "id": 1,
+      "type": "menu",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "Menu Simple",
+      "prix": 1500
+    },
+    {
+      "id": 2,
+      "type": "menu",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "Menu Double",
+      "prix": 2500
+    },
+    {
+      "id": 3,
+      "type": "menu",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "Menu Simple",
+      "prix": 1500
+    },
+    {
+      "id": 4,
+      "type": "menu",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "Menu Mbaye",
+      "prix": 1000
+    },
+    {
+      "id": 5,
+      "type": "menu",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "Menu Diouf",
+      "prix": 2000
+    },
+    {
+      "id": 6,
+      "type": "menu",
+      "image": "https://fakeimg.pl/279x158/",
+      "nom": "Menu Dakar",
+      "prix": 5000
+    }
+  ]
 }
