@@ -14,7 +14,6 @@ import { BoissonsComponent } from './components/boissons/boissons.component';
 import { TailleBoissonsComponent } from './components/taille-boissons/taille-boissons.component';
 import { DetailsDescComponent } from './components/details-desc/details-desc.component';
 import { LayoutModule } from 'src/app/layout/layout.module';
-import { CataloguePipe } from './pipes/catalogue.pipe';
 
 
 @NgModule({
@@ -29,7 +28,6 @@ import { CataloguePipe } from './pipes/catalogue.pipe';
     BoissonsComponent,
     TailleBoissonsComponent,
     DetailsDescComponent,
-    CataloguePipe,
   ],
   imports: [
     CommonModule,

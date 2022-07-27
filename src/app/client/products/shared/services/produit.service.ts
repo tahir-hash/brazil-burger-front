@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Catalogue } from '../models/catalogue';
 import { Produit } from '../models/produit';
 
 @Injectable({
@@ -10,8 +11,13 @@ export class ProduitService {
   private url:string = "http://localhost:3000/catalogue";
   constructor(private http:HttpClient) { }
   
-  all$= (): Observable<Produit[]> =>{
-    return this.http.get<Produit[]>(this.url)
+  all$= (): Observable<Catalogue> =>{
+    return this.http.get<Catalogue>(this.url).pipe(
+      map(data=>{
+        data.getAll=[...data.burgers,...data.menus]
+        return data;
+      })
+    )
   }
  
 }

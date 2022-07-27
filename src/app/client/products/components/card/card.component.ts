@@ -7,7 +7,7 @@ import { Produit } from '../../shared/models/produit';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input('produits') produits : Produit|null = null;
+  @Input('catalogue') catalogue : Produit|undefined = undefined;
   constructor() { }
 
   ngOnInit(): void {

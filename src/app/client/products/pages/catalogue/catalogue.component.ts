@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { filter, map, mergeAll, Observable, tap } from 'rxjs';
-import { Produit } from '../../shared/models/produit';
+import { Catalogue } from '../../shared/models/catalogue';
+import {Produit } from '../../shared/models/produit';
 import { ProduitService } from '../../shared/services/produit.service';
 
 @Component({
@@ -9,31 +10,29 @@ import { ProduitService } from '../../shared/services/produit.service';
   styleUrls: ['./catalogue.component.css']
 })
 export class CatalogueComponent implements OnInit {
-
-  public result: Produit[]=[];
-  produits$ : Observable<Produit[]> | null = null;
+//
+  catalogue: Produit[] | null = null;
   constructor(private service:ProduitService) { }
 
   ngOnInit(): void {
-    this.produits$ = this.service.all$()
-    this.produits$.subscribe();
-     /*  this.produits$.subscribe(result=>{
-        this.result=result
-        this.result=Object.values(this.result)
-        console.log(this.result)
-        return this.result
-      }); */
-
+    this.service.all$().subscribe(data=>{
+       this.catalogue=data.getAll;
+    })
+     
   }
 
   onfilterProduct(type:string)
   {
-    this.produits$ = this.service.all$().pipe(
+    /* this.produits$ = this.service.all$().pipe(
       map(result=>{
         console.log(result)
        return result.filter(prod=>prod.type==type)
       })
-    )
+    ) */
+    this.service.all$().subscribe(data=>{
+      this.catalogue=data.getAll;
+   })
+   return this.catalogue?.filter(prod=>prod.type==type)
   }
 
 

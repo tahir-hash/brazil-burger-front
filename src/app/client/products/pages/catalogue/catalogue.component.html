@@ -10,8 +10,9 @@
         <a class="text-black" (click)="onfilterProduct('menu')"> <i class="fa-solid fa-utensils fa-3x"></i></a>
     </div>
    <div class="row">
-    <div *ngFor="let Produit of produits$|async"  class="card-all">
-        <mtm-card [produits]="Produit"></mtm-card>
+    
+    <div *ngFor="let cat of catalogue" class="card-all">
+        <mtm-card [catalogue]="cat"></mtm-card>
     </div>
    </div>
 </div>

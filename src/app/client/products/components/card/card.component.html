@@ -1,9 +1,9 @@
 <div class="card mb-4">
-    <img class="mx-auto mt-2" src="{{produits?.image}}" width="80%" height="158"/>
+    <img class="mx-auto" src="data:image/png;base64,{{catalogue?.image}}" width="100%" height="158"/>
     <div class="card-body">
-        <h2 class="card-title text-center burg">{{produits?.nom}}</h2>
+        <h2 class="card-title text-center burg">{{catalogue?.nom}}</h2>
         <div class="d-flex justify-content-between">
-            <h4 class="prix">{{produits?.prix}}</h4>
+            <h4 class="prix">{{catalogue?.prix}}</h4>
             <i class="fa-solid fa-cart-plus fa-2x cart" [routerLink]='["/client/products/details/{{produits?.id}}"]'></i>
         </div>
     </div>
