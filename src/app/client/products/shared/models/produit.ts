@@ -4,5 +4,9 @@ export interface Produit {
   image?: Blob;
   nom?: string;
   prix?: number;
+  description?: string;
+  menuBurgers?:[]
+  menuTailles?:[]
+  menuPortionFrites?:[]
 }
 

@@ -4,7 +4,7 @@
         <h2 class="card-title text-center burg">{{catalogue?.nom}}</h2>
         <div class="d-flex justify-content-between">
             <h4 class="prix">{{catalogue?.prix}}</h4>
-            <i class="fa-solid fa-cart-plus fa-2x cart" [routerLink]='["/client/products/details/{{produits?.id}}"]'></i>
+            <a routerLink="/client/products/details/{{catalogue?.id}}"><i class="fa-solid fa-cart-plus fa-2x cart"></i></a>
         </div>
     </div>
 </div>

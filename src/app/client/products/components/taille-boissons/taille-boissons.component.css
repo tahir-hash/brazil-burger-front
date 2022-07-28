@@ -4,7 +4,7 @@
 }
 .boissons
 {
-    width: 70%;
+    width: 80%;
     overflow-x: scroll;
     scrollbar-color: #d5ac68 #f1db9d;
    scrollbar-width: thin;
@@ -28,4 +28,8 @@
   
   .boissons::-webkit-scrollbar:vertical {
     display: none;
+  }
+  mtm-boissons
+  {
+    margin-right: 2%;
   }

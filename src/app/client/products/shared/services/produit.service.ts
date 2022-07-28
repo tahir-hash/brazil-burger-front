@@ -8,7 +8,9 @@ import { Produit } from '../models/produit';
   providedIn: 'root'
 })
 export class ProduitService {
-  private url:string = "http://localhost:3000/catalogue";
+  private url:string = "https://tahirbrazilburger.herokuapp.com/api/catalogues";
+  private urlmenu:string = "https://tahirbrazilburger.herokuapp.com/api/menus/8";
+
   constructor(private http:HttpClient) { }
   
   all$= (): Observable<Catalogue> =>{
@@ -19,5 +21,8 @@ export class ProduitService {
       })
     )
   }
- 
+
+  one$=()=>{
+    return this.http.get(this.urlmenu)
+  }
 }

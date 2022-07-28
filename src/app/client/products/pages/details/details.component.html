@@ -1,9 +1,14 @@
+
+{{tahir|json}}
 <mtm-header></mtm-header>
 <div class="container shadow-lg p-3 mb-5 bg-body rounded mt-3">
-   <mtm-details-desc></mtm-details-desc>
+   <mtm-details-desc [details]="tahir"></mtm-details-desc>
     <h2 class="text-center fw-bold" style="color: #D4401F;">Composition du menu</h2>
     <div class="composition d-flex p-1">
-      <mtm-composition></mtm-composition>
+      <ng-container $ngFor="let composition of tahir">
+        <mtm-composition [composition]="tahir
+        "></mtm-composition>
+      </ng-container>
       <mtm-composition></mtm-composition>
       <mtm-composition></mtm-composition>
       <mtm-composition></mtm-composition>

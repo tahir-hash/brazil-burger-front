@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Produit } from '../../shared/models/produit';
 
 @Component({
   selector: 'mtm-composition',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./composition.component.css']
 })
 export class CompositionComponent implements OnInit {
+  @Input() composition:Produit| undefined = undefined;
 
   constructor() { }
 

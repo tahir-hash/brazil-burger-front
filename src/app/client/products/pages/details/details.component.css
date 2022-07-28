@@ -21,11 +21,7 @@
 {
   overflow-x: scroll;
 }
-.choice
-{
-  height: 400px;
-  overflow-y: scroll;
-}
+
 
 /* custom scrol */
 .composition::-webkit-scrollbar {

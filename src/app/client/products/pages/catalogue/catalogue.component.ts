@@ -30,9 +30,8 @@ export class CatalogueComponent implements OnInit {
       })
     ) */
     this.service.all$().subscribe(data=>{
-      this.catalogue=data.getAll;
+      this.catalogue=data.getAll?.filter(prod=>prod.type==type);
    })
-   return this.catalogue?.filter(prod=>prod.type==type)
   }
 
 
