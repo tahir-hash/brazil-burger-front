@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Menuburgers } from '../../shared/models/menuburgers';
 import { Produit } from '../../shared/models/produit';
 import { ProduitService } from '../../shared/services/produit.service';
 
@@ -9,16 +11,29 @@ import { ProduitService } from '../../shared/services/produit.service';
 })
 export class DetailsComponent implements OnInit {
   tahir : Produit |undefined=undefined;
-  constructor(private service: ProduitService) { }
+  composition:Menuburgers|null=null;
+  
+  constructor(private service: ProduitService,public route: ActivatedRoute) { }
 
   ngOnInit(): void {
     /* this.service.all$().subscribe(data=>{
       this.catalogue=data.getAll;
    }) */
-   this.service.one$().subscribe(data=>{
+    let id = this.route.snapshot.paramMap.get('id');
+    var type = this.route.snapshot.paramMap.get('type');
+
+   this.service.one$(id,type).subscribe(data=>{
     //console.log(data);
     this.tahir=data
    })
   }
+  activeTab:string = 'search';
 
+  search(activeTab:string){
+    this.activeTab = activeTab;
+  }
+
+  result(activeTab:string){
+    this.activeTab = activeTab;
+  }
 }

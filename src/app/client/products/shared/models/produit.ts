@@ -1,3 +1,5 @@
+import { Menuburgers } from "./menuburgers";
+
 export interface Produit {
   id?: number;
   type?: string;
@@ -5,7 +7,7 @@ export interface Produit {
   nom?: string;
   prix?: number;
   description?: string;
-  menuBurgers?:[]
+  menuBurgers?:Menuburgers[]
   menuTailles?:[]
   menuPortionFrites?:[]
 }

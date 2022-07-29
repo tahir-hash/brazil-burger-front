@@ -21,7 +21,18 @@
 {
   overflow-x: scroll;
 }
-
+.nav-link.active
+{
+  background-color: #D4401f;
+}
+.nav-item button
+{
+  font-size: 20px;
+}
+.tab
+{
+  margin-left: 13%;
+}
 
 /* custom scrol */
 .composition::-webkit-scrollbar {

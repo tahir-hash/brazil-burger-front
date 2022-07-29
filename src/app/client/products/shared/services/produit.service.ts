@@ -9,7 +9,8 @@ import { Produit } from '../models/produit';
 })
 export class ProduitService {
   private url:string = "https://tahirbrazilburger.herokuapp.com/api/catalogues";
-  private urlmenu:string = "https://tahirbrazilburger.herokuapp.com/api/menus/8";
+  private urlmenu:string = "https://tahirbrazilburger.herokuapp.com/api/menus";
+  private urlburger:string = "https://tahirbrazilburger.herokuapp.com/api/burgers";
 
   constructor(private http:HttpClient) { }
   
@@ -22,7 +23,12 @@ export class ProduitService {
     )
   }
 
-  one$=()=>{
-    return this.http.get(this.urlmenu)
+  one$=(id:any,type:any)=>{
+    if(type=="burger")
+    {
+      return this.http.get(`${this.urlburger}/${id}`);
+    }
+    return this.http.get(`${this.urlmenu}/${id}`);
+
   }
 }
