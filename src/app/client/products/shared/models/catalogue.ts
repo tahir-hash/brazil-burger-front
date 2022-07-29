@@ -4,5 +4,5 @@ export interface Catalogue
 {
   burgers:Produit[]
   menus:Produit[]
-  getAll:Produit[]
+  getAll?:Produit[]
 }

@@ -15,9 +15,14 @@ export class ProduitService {
   constructor(private http:HttpClient) { }
   
   all$= (): Observable<Catalogue> =>{
-    return this.http.get<Catalogue>(this.url).pipe(
+    return this.http.get<any>(this.url).pipe(
       map(data=>{
-        data.getAll=[...data.burgers,...data.menus]
+        let catalogue: Catalogue={
+          burgers: data['hydra:member'][0]['burgers'],
+          menus: data['hydra:member'][1]['menus'],
+        }
+        console.log(catalogue)
+        data.getAll=[...catalogue.burgers,...catalogue.menus]
         return data;
       })
     )

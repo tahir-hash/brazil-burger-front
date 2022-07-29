@@ -11,7 +11,7 @@ import { ProduitService } from '../../shared/services/produit.service';
 })
 export class CatalogueComponent implements OnInit {
 //
-  catalogue: Produit[] | null = null;
+  catalogue: Produit[] | undefined = undefined;
   constructor(private service:ProduitService) { }
 
   ngOnInit(): void {
