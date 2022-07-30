@@ -1,15 +1,20 @@
-<div class="taille d-flex">
-    <h4 class="type" style="color: #D4401F;">Cannette(3)</h4>
-    <div class="boissons d-flex mb-5">
-        <mtm-boissons></mtm-boissons>
-        <mtm-boissons></mtm-boissons>
-        <mtm-boissons></mtm-boissons>
-        <mtm-boissons></mtm-boissons>
-        <mtm-boissons></mtm-boissons>
-        <mtm-boissons></mtm-boissons>
-        <mtm-boissons></mtm-boissons>
-        <mtm-boissons></mtm-boissons>
-        <mtm-boissons></mtm-boissons>
-
+<ng-container *ngIf="tailles" >
+    <div class="taille d-flex">
+        <h4 class="type" style="color: #D4401F;">{{tailles?.taille?.libelle}} ({{tailles?.quantite}})</h4>
+        <div class="boissons d-flex mb-5">
+            <ng-container *ngFor="let boisson of tailles?.taille?.boissonTailles">
+                <mtm-boissons [boisson]="boisson"></mtm-boissons>
+            </ng-container>
+        </div>
     </div>
-</div>
+</ng-container>
+<ng-container *ngIf="otherTaille" >
+    <div class="taille d-flex">
+        <h4 class="type" style="color: #D4401F;">{{otherTaille?.libelle}}</h4>
+        <div class="boissons d-flex mb-5">
+            <ng-container *ngFor="let boisson of otherTaille?.boissonTailles">
+                <mtm-boissons [boisson]="boisson"></mtm-boissons>
+            </ng-container>
+        </div>
+    </div>
+</ng-container>

@@ -1,60 +1,92 @@
 <mtm-header></mtm-header>
-<div class="container shadow-lg p-3 mb-5 bg-body rounded mt-3">
-   <mtm-details-desc [details]="tahir"></mtm-details-desc>
-   <ng-container *ngIf="route.snapshot.paramMap.get('type')!='burger'">
-        <h2 class="text-center fw-bold" style="color: #D4401F;">Composition du menu</h2>
+<ng-container *ngIf="produit==undefined">
+  <mtm-loader></mtm-loader>
+</ng-container>
+<ng-container *ngIf="produit!=undefined">
+  <div class="container shadow-lg p-3 mb-5 bg-body rounded mt-3">
+    <ng-container *ngIf="route.snapshot.paramMap.get('type') == 'menu'">
+      <mtm-details-desc [details]="produit?.menu"></mtm-details-desc>
+    </ng-container>
+    <ng-container *ngIf="route.snapshot.paramMap.get('type') == 'burger'">
+      <mtm-details-desc [details]="produit?.burger"></mtm-details-desc>
+    </ng-container>
+    <ng-container *ngIf="route.snapshot.paramMap.get('type') != 'burger'">
+      <h2 class="text-center fw-bold" style="color: #d4401f">
+        Composition du menu
+      </h2>
       <div class="composition d-flex p-1">
-        <ng-container *ngFor="let composition of tahir?.menuBurgers">
-              <mtm-composition [composition]="composition"></mtm-composition>
+        <ng-container *ngFor="let composition of produit?.menu?.menuBurgers">
+          <mtm-composition [composition]="composition"></mtm-composition>
         </ng-container>
-        <ng-container *ngFor="let composition of tahir?.menuPortionFrites">
+        <ng-container *ngFor="let composition of produit?.menu.menuPortionFrites">
           <mtm-composition [frites]="composition"></mtm-composition>
-      </ng-container>
+        </ng-container>
       </div>
-      <h2 class="text-center fw-bold mt-5" style="color: #D4401F;">Choisir les boissons du menu</h2>
+      <h2 class="text-center fw-bold mt-5" style="color: #d4401f">
+        Choisir les boissons du menu
+      </h2>
       <div class="choice d-flex mb-4 flex-column p-3">
-          <mtm-taille-boissons></mtm-taille-boissons>
-          <mtm-taille-boissons></mtm-taille-boissons>
+        <ng-container *ngFor="let tailles of produit?.menu.menuTailles">
+          <mtm-taille-boissons [tailles]="tailles"></mtm-taille-boissons>
+        </ng-container>
       </div>
-   </ng-container>
+    </ng-container>
   
-    <h2 class="text-center fw-bold mt-5" style="color: #D4401F;">Choisir d'autres complements</h2>
+    <h2 class="text-center fw-bold mt-5" style="color: #d4401f">
+      Choisir d'autres complements
+    </h2>
     <div id="tabs" #tabs>
       <ul class="nav nav-pills d-flex tab">
         <li class="nav-item">
-          <button class="nav-link active text-dark" [ngClass]="{ 'active':activeTab==='search'}" (click)="search('search')"
-             data-toggle="tab">Boissons</button>
+          <button
+            class="nav-link active text-dark"
+            [ngClass]="{ active: activeTab === 'search' }"
+            (click)="search('search')"
+            data-toggle="tab"
+          >
+            Boissons
+          </button>
         </li>
         <li class="nav-item">
-          <button class="nav-link text-dark"  [ngClass]="{ 'active':activeTab==='result'}" data-toggle="tab"
-             (click)="result('result')">Portion de frites</button>
+          <button
+            class="nav-link text-dark"
+            [ngClass]="{ active: activeTab === 'result' }"
+            data-toggle="tab"
+            (click)="result('result')"
+          >
+            Portion de frites
+          </button>
         </li>
       </ul>
       <div class="tab-content mt-3">
-        <div class="tab-pane" id="search" [ngClass]="{ 'active':activeTab==='search'}">
+        <div
+          class="tab-pane"
+          id="search"
+          [ngClass]="{ active: activeTab === 'search' }"
+        >
           <div class="choice d-flex mb-4 flex-column p-3">
-            <mtm-taille-boissons></mtm-taille-boissons>
-            <mtm-taille-boissons></mtm-taille-boissons>
+            <ng-container *ngFor="let otherTaille of produit?.boissons">
+              <mtm-taille-boissons
+                [otherTaille]="otherTaille"
+              ></mtm-taille-boissons>
+            </ng-container>
+          </div>
         </div>
-        </div>
-        <div class="tab-pane" id="results" [ngClass]="{ 'active':activeTab==='result'}">
+        <div
+          class="tab-pane"
+          id="results"
+          [ngClass]="{ active: activeTab === 'result' }"
+        >
           <div class="composition d-flex p-1">
-            <mtm-boissons></mtm-boissons>
-            <mtm-boissons></mtm-boissons>
-            <mtm-boissons></mtm-boissons>
-            <mtm-boissons></mtm-boissons>
-            <mtm-boissons></mtm-boissons>
-            <mtm-boissons></mtm-boissons>
-            <mtm-boissons></mtm-boissons>
-            <mtm-boissons></mtm-boissons>
-            <mtm-boissons></mtm-boissons>
-            <mtm-boissons></mtm-boissons>
-
+            <ng-container *ngFor="let otherFrite of produit?.frites">
+              <mtm-composition [otherFrite]="otherFrite"></mtm-composition>
+            </ng-container>
           </div>
         </div>
       </div>
-    
     </div>
-</div>
-
-<mtm-footer></mtm-footer>
+  </div>
+  
+  <mtm-footer></mtm-footer>
+  
+</ng-container>

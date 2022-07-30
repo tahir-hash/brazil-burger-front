@@ -1,4 +1,4 @@
-import { Menuburgers } from "./menuburgers";
+import { Taille } from "./Taille";
 
 export interface Produit {
   id?: number;
@@ -7,8 +7,10 @@ export interface Produit {
   nom?: string;
   prix?: number;
   description?: string;
-  menuBurgers?:Menuburgers[]
-  menuTailles?:[]
-  menuPortionFrites?:[]
+  menu?:any
+  boissons?:any
+  frites?:any
+  burger?:any
+
 }
 

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Menuburgers } from '../../shared/models/menuburgers';
 import { Produit } from '../../shared/models/produit';
+import { SubMenu } from '../../shared/models/SubMenu';
 
 @Component({
   selector: 'mtm-composition',
@@ -8,8 +8,9 @@ import { Produit } from '../../shared/models/produit';
   styleUrls: ['./composition.component.css']
 })
 export class CompositionComponent implements OnInit {
-  @Input() composition:Menuburgers | undefined = undefined;
-  @Input() frites:Menuburgers | undefined = undefined;
+  @Input() composition:SubMenu | undefined = undefined;
+  @Input() frites:SubMenu | undefined = undefined;
+  @Input() otherFrite:Produit | undefined = undefined;
 
   constructor() { }
 

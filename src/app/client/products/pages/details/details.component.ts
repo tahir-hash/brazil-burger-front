@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Menuburgers } from '../../shared/models/menuburgers';
+import { Boisson } from '../../shared/models/Boisson';
 import { Produit } from '../../shared/models/produit';
+import { SubMenu } from '../../shared/models/SubMenu';
+import { Taille } from '../../shared/models/Taille';
 import { ProduitService } from '../../shared/services/produit.service';
 
 @Component({
@@ -10,8 +12,11 @@ import { ProduitService } from '../../shared/services/produit.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  tahir : Produit |undefined=undefined;
-  composition:Menuburgers|null=null;
+  produit : Produit |undefined=undefined;
+  composition:SubMenu|null=null;
+  frites:SubMenu|null=null;
+  tailles:Taille|null=null;
+
   
   constructor(private service: ProduitService,public route: ActivatedRoute) { }
 
@@ -20,11 +25,10 @@ export class DetailsComponent implements OnInit {
       this.catalogue=data.getAll;
    }) */
     let id = this.route.snapshot.paramMap.get('id');
-    var type = this.route.snapshot.paramMap.get('type');
 
-   this.service.one$(id,type).subscribe(data=>{
-    //console.log(data);
-    this.tahir=data
+   this.service.one$(id).subscribe(data=>{
+    console.log(data);
+    this.produit=data
    })
   }
   activeTab:string = 'search';
