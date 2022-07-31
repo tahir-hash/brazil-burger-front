@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './loader/loader.component';
+import { MinusCountComponent } from './minus-count/minus-count.component';
 
 
 
@@ -11,7 +12,8 @@ import { LoaderComponent } from './loader/loader.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    MinusCountComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,9 @@ import { LoaderComponent } from './loader/loader.component';
   exports: [
     HeaderComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    MinusCountComponent
+
   ]
 })
 export class LayoutModule { }

@@ -1,4 +1,3 @@
-import { Taille } from "./Taille";
 
 export interface Produit {
   id?: number;
@@ -11,6 +10,5 @@ export interface Produit {
   boissons?:any
   frites?:any
   burger?:any
-
 }
 

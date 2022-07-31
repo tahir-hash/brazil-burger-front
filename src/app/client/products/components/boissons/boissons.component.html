@@ -1,11 +1,8 @@
-<div class="main d-flex flex-column align-items-center">
-    <div class="qty">
-        <button (click)="qtyminus(qte)" class="increment" aria-hidden="true">&minus;</button>
-        <input type="number" #qte name="qty" id="qty" min="1" step="1" value="0">
-        <button (click)="qtyplus(qte)" class="increment" aria-hidden="true">&plus;</button>
+    <div class="main d-flex flex-column align-items-center">
+        <mtm-minus-count></mtm-minus-count>
+        <div class="contain">
+            <img class="rounded-circle mx-auto mt-2 img" src="data:image/png;base64,{{boisson?.boisson?.image}}" width="100" height="100" alt="">
+            <h4 class="text-center">{{boisson?.boisson?.nom}}</h4>
+        </div>
     </div>
-    <div class="contain">
-        <img class="rounded-circle mx-auto mt-2 img" src="data:image/png;base64,{{boisson?.var?.image}}" width="100" height="100" alt="">
-        <h4 class="text-center">{{boisson?.var?.nom}}</h4>
-    </div>
-</div>
+    

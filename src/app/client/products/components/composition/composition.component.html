@@ -1,13 +1,13 @@
-    <div *ngIf="composition" class="comp m-3">
-        <img  class="rounded-circle mx-auto mt-2" width="100" height="100" src="data:image/png;base64,{{composition?.burger?.image}}"/>
-        <h4 style="color: #D4401F;" class="text-center">{{composition?.burger?.nom}}({{composition?.quantite}})</h4>
+   <div *ngIf="composition" class="comp m-3">
+        <img  class="rounded-circle mx-auto mt-2" width="100" height="100" src="data:image/png;base64,{{composition.burger?.image}}"/>
+        <h4 style="color: #D4401F;" class="text-center">{{composition.burger?.nom}}({{composition.quantite}})</h4>
     </div>
     <div *ngIf="frites" class="comp  m-3">
-        <img class="rounded-circle mx-auto mt-2" width="100" height="100" src="data:image/png;base64,{{frites?.portionFrite?.image}}" />
-        <h4 style="color: #D4401F;" class="text-center">{{frites?.portionFrite?.nom}}({{frites?.quantite}})</h4>
+        <img class="rounded-circle mx-auto mt-2" width="100" height="100" src="data:image/png;base64,{{frites.portionFrite?.image}}" />
+        <h4 style="color: #D4401F;" class="text-center">{{frites.portionFrite?.nom}}({{frites.quantite}})</h4>
     </div>
 
     <div *ngIf="otherFrite" class="comp  m-3">
-        <img class="rounded-circle mx-auto mt-2" width="100" height="100" src="data:image/png;base64,{{otherFrite?.image}}" />
-        <h4 style="color: #D4401F;" class="text-center">{{otherFrite?.nom}}</h4>
+        <img class="rounded-circle mx-auto mt-2" width="100" height="100" src="data:image/png;base64,{{otherFrite.image}}" />
+        <h4 style="color: #D4401F;" class="text-center">{{otherFrite.nom}}</h4>
     </div>

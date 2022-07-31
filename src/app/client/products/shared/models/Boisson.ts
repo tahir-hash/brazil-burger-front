@@ -5,5 +5,5 @@ export interface Boisson
   libelle?: string
   prix?: number
   stock?:number
-  var:Produit
+  boisson:Produit
 }
