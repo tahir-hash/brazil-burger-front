@@ -9,11 +9,11 @@ import { DetailsComponent } from './pages/details/details.component';
 import { CountComponent } from './components/count/count.component';
 import { CompositionComponent } from './components/composition/composition.component';
 import { RouterModule } from '@angular/router';
-import { AddCartComponent } from './components/add-cart/add-cart.component';
 import { BoissonsComponent } from './components/boissons/boissons.component';
 import { TailleBoissonsComponent } from './components/taille-boissons/taille-boissons.component';
 import { DetailsDescComponent } from './components/details-desc/details-desc.component';
 import { LayoutModule } from 'src/app/layout/layout.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +24,6 @@ import { LayoutModule } from 'src/app/layout/layout.module';
     DetailsComponent,
     CountComponent,
     CompositionComponent,
-    AddCartComponent,
     BoissonsComponent,
     TailleBoissonsComponent,
     DetailsDescComponent,
@@ -33,7 +32,8 @@ import { LayoutModule } from 'src/app/layout/layout.module';
     CommonModule,
     ProductsRoutingModule,
     RouterModule,
-    LayoutModule
+    LayoutModule,
+    FormsModule
   ]
 })
 export class ProductsModule { }

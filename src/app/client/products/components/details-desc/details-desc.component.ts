@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Produit } from '../../shared/models/produit';
 
 @Component({
@@ -8,9 +8,18 @@ import { Produit } from '../../shared/models/produit';
 })
 export class DetailsDescComponent implements OnInit {
 @Input() details:Produit| undefined = undefined;
+
   constructor() { }
+  attr_dis=false;
 
   ngOnInit(): void {
   }
 
+  Ondisabled(event:any){
+   this.attr_dis=event;
+  }
+
+  ok(){
+    alert("ok");
+  }
 }

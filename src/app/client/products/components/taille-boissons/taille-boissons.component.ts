@@ -12,9 +12,11 @@ export class TailleBoissonsComponent implements OnInit {
   @Input() tailles:MenuTaille | undefined = undefined;
   @Input() otherTaille:Taille | undefined = undefined;
   
+
   constructor() { }
 
   ngOnInit(): void {
+    //console.log(this.tailles?.taille)
   }
 
 }

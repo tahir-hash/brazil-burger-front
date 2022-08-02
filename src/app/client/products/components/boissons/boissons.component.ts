@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Boisson } from '../../shared/models/Boisson';
 
 @Component({
@@ -8,11 +8,15 @@ import { Boisson } from '../../shared/models/Boisson';
 })
 export class BoissonsComponent implements OnInit {
   @Input() boisson:Boisson | undefined = undefined;
-
+  
   constructor() { }
 
   ngOnInit(): void {
   }
   
+  onCount(event:any)
+  {
+    console.log(event);
+  }
  
 }
