@@ -1,6 +1,6 @@
 <div class="qty">
     <button (click)="dec()" class="increment" aria-hidden="true">&minus;</button>
-    <input type="number"  (change)="onChange($event)" #qte name="qty" id="qty" min="1" step="1" value="0">
+    <input type="number" [disabled]="true"   (change)="onChange($event)" #qte name="qty" id="qty" min="1" step="1" value="{{quantity}}">
     <button (click)="inc()" class="increment" aria-hidden="true">&plus;</button>
 </div>
-FontSize: {{size}}
+quantite: {{quantity}}

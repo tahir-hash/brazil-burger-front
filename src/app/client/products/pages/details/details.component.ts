@@ -16,7 +16,7 @@ export class DetailsComponent implements OnInit {
   composition:SubMenu|null=null;
   frites:SubMenu|null=null;
   tailles:Taille|null=null;
-  
+  qte=1;
   constructor(private service: ProduitService,public route: ActivatedRoute) { }
   ngOnInit(): void {
     /* this.serv.getValue().subscribe(info =>{
@@ -49,4 +49,8 @@ export class DetailsComponent implements OnInit {
       alert ('ok');
     }
   } */
+  btnQte=1
+  recupQte(event:any){
+    this.btnQte=event;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Produit } from '../../shared/models/produit';
 
 @Component({
@@ -8,11 +8,17 @@ import { Produit } from '../../shared/models/produit';
 })
 export class DetailsDescComponent implements OnInit {
 @Input() details:Produit| undefined = undefined;
-
-  constructor() { }
+ btnQte=1;
+@Output() btnQteChange = new EventEmitter<number>();
+constructor() { }
   attr_dis=false;
-
+  
   ngOnInit(): void {
+  }
+  tailleCtr(event:number)
+  {
+    this.btnQte=event;
+    this.btnQteChange.emit(this.btnQte);
   }
 
   Ondisabled(event:any){

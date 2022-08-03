@@ -3,6 +3,6 @@ import { Taille } from "./Taille"
 
 export interface MenuTaille
 {
-  quantite?:number
+  quantite:number
   taille?:Taille
 }

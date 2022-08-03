@@ -8,6 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class CountComponent implements OnInit {
   constructor() { }
   nombre = 1
+  @Output() count = new EventEmitter<number>();
   @Output() disabled : EventEmitter<boolean> = new EventEmitter();
 
   attr_dis=false;
@@ -22,6 +23,7 @@ export class CountComponent implements OnInit {
         newval = 1;
       }
       input.value = Number(newval);
+      this.count.emit(input.value);
     }
   }
 
@@ -30,6 +32,7 @@ export class CountComponent implements OnInit {
       var current = Number(input.value);
       var newval = (current + 1);
       input.value = Number(newval);
+      this.count.emit(input.value);
     }
   }
 
@@ -42,18 +45,8 @@ export class CountComponent implements OnInit {
     }
   }
 
-  onKey(event: any){
-    const value = event.target.value;
-    if(value==0)
-    {
-      this.attr_dis=true
-      this.disabled.emit(this.attr_dis);
-    }
-    else
-    {
-      this.attr_dis=false
-      this.disabled.emit(this.attr_dis);
-    }
+  onKey(input: any){
+    this.count.emit(input.value)
   }
 
 }

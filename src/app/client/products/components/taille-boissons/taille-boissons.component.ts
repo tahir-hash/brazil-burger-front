@@ -11,13 +11,22 @@ import { Taille } from '../../shared/models/Taille';
 export class TailleBoissonsComponent implements OnInit {
   @Input() tailles:MenuTaille | undefined = undefined;
   @Input() otherTaille:Taille | undefined = undefined;
+  @Input() btnQte:number = 1;
   
-  
+  qte=0
   constructor() { }
 
   ngOnInit(): void {
-    //console.log(this.tailles?.taille)
+    if(this.tailles?.quantite!=undefined)
+    {
+      this.qte= this.tailles?.quantite * this.btnQte;
+    }
   }
-  size:number = 0;
-  
+  quantity:number = 0;
+
+  validQte(event:any,taille:any, quantite:any) {
+    alert(quantite)
+  }
+
+
 }
