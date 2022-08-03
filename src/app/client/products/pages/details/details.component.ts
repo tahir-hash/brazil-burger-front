@@ -53,4 +53,9 @@ export class DetailsComponent implements OnInit {
   recupQte(event:any){
     this.btnQte=event;
   }
+
+  yaLien(event:any)
+  {
+    alert(event);
+  }
 }

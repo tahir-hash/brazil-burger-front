@@ -20,9 +20,11 @@ export class BoissonsComponent implements OnInit {
   {
     console.log(event);
   } */
+  size=0
   valid(event:any)
   {
-    this.juiceChanged.emit(event);
+    this.size=event
+    this.juiceChanged.emit(this.size);
   }
  
 }

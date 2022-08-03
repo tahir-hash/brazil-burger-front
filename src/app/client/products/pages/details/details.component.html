@@ -5,10 +5,16 @@
 <ng-container *ngIf="produit != undefined">
   <div class="container shadow-lg p-3 mb-5 bg-body rounded mt-3">
     <ng-container *ngIf="route.snapshot.paramMap.get('type') == 'menu'">
-      <mtm-details-desc (btnQteChange)="recupQte($event)"  [details]="produit.menu"></mtm-details-desc>
+      <mtm-details-desc
+        (btnQteChange)="recupQte($event)"
+        [details]="produit.menu"
+      ></mtm-details-desc>
     </ng-container>
     <ng-container *ngIf="route.snapshot.paramMap.get('type') == 'burger'">
-      <mtm-details-desc (btnQteChange)="recupQte($event)" [details]="produit.burger"></mtm-details-desc>
+      <mtm-details-desc
+        (btnQteChange)="recupQte($event)"
+        [details]="produit.burger"
+      ></mtm-details-desc>
     </ng-container>
     <ng-container *ngIf="route.snapshot.paramMap.get('type') != 'burger'">
       <h2 class="text-center fw-bold" style="color: #d4401f">
@@ -29,7 +35,10 @@
       </h2>
       <div class="choice d-flex mb-4 flex-column p-3">
         <ng-container *ngFor="let tailles of produit?.menu.menuTailles">
-          <mtm-taille-boissons [btnQte]="btnQte"  [tailles]="tailles"></mtm-taille-boissons>
+          <mtm-taille-boissons
+            [btnQte]="btnQte"
+            [tailles]="tailles"
+          ></mtm-taille-boissons>
         </ng-container>
       </div>
     </ng-container>
@@ -68,7 +77,8 @@
         >
           <div class="choice d-flex mb-4 flex-column p-3">
             <ng-container *ngFor="let otherTaille of produit?.boissons">
-              <mtm-taille-boissons
+              <mtm-taille-boissons 
+                (objetBoissonChange)="yaLien($event)" 
                 [otherTaille]="otherTaille"
               ></mtm-taille-boissons>
             </ng-container>

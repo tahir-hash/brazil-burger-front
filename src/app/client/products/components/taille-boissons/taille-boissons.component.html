@@ -1,9 +1,11 @@
 <ng-container *ngIf="tailles" >
     <div class="taille d-flex">
-        <h4 class="type" style="color: #D4401F;">{{tailles.taille?.libelle}}({{tailles.quantite*btnQte}})</h4>
+        <h4 class="type" style="color: #D4401F;">{{tailles.taille?.libelle}}({{tailles.quantite*btnQte}})</h4> 
+        <small style="color: red;">{{message()}}</small>
         <div class="boissons d-flex mb-5">
             <ng-container *ngFor="let boisson of tailles?.taille?.boissonTailles">
-                <mtm-boissons (juiceChanged)="validQte($event, tailles.taille?.libelle,tailles.quantite)" [boisson]="boisson"></mtm-boissons>
+               {{boisson?.boisson?.id}}
+                <mtm-boissons  (juiceChanged)="validQte($event)" (juiceChanged)="valid(boisson?.boisson?.id,tailles.taille?.id,tailles.quantite*btnQte)" [boisson]="boisson"></mtm-boissons>
             </ng-container>
         </div>
     </div>  
