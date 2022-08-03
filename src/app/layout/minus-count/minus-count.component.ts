@@ -1,4 +1,4 @@
-import { Component,EventEmitter, OnInit, Output } from '@angular/core';
+import { Component,EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ServiceEventService } from 'src/app/client/products/shared/services/service-event.service';
 
 @Component({
@@ -38,5 +38,17 @@ export class MinusCountComponent implements OnInit {
     const value= event.target.value;
     this.quantite = Number(value);
     this.serv.emitValue(this.quantite)
+  }
+
+
+  @Input()  size: number=0;
+  @Output() sizeChange = new EventEmitter<number>();
+
+  dec() { this.resize(-1); }
+  inc() { this.resize(+1); }
+
+  resize(delta: number) {
+    this.size = Math.min(40, Math.max(0, +this.size + delta));
+    this.sizeChange.emit(this.size);
   }
 }

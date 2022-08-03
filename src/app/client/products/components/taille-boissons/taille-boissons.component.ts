@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Boisson } from '../../shared/models/Boisson';
 import { MenuTaille } from '../../shared/models/MenuTaille';
 import { Taille } from '../../shared/models/Taille';
@@ -12,11 +12,12 @@ export class TailleBoissonsComponent implements OnInit {
   @Input() tailles:MenuTaille | undefined = undefined;
   @Input() otherTaille:Taille | undefined = undefined;
   
-
+  
   constructor() { }
 
   ngOnInit(): void {
     //console.log(this.tailles?.taille)
   }
-
+  size:number = 0;
+  
 }

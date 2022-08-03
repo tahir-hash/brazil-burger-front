@@ -8,7 +8,7 @@ import { Boisson } from '../../shared/models/Boisson';
 })
 export class BoissonsComponent implements OnInit {
   @Input() boisson:Boisson | undefined = undefined;
-  
+  fontSizePx=0
   constructor() { }
 
   ngOnInit(): void {
