@@ -1,6 +1,5 @@
 import { Component,ElementRef,EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { ServiceEventService } from 'src/app/shared/services/service-event.service';
 
 @Component({
   selector: 'mtm-minus-count',
@@ -10,7 +9,7 @@ import { ServiceEventService } from 'src/app/shared/services/service-event.servi
 export class MinusCountComponent implements OnInit {
   //@Output() submit : EventEmitter<any> = new EventEmitter();
   quantite=0;
-  constructor(private serv:ServiceEventService) {}
+  constructor() {}
 
   ngOnInit(): void {
   }
@@ -35,11 +34,11 @@ export class MinusCountComponent implements OnInit {
     }
   }
 
-  onChange(event:any){
+ /*  onChange(event:any){
     const value= event.target.value;
     this.quantite = Number(value);
     this.serv.emitValue(this.quantite)
-  }
+  } */
 
 
   @Input()  quantity: number=0;
