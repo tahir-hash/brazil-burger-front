@@ -12,12 +12,14 @@ import { ProduitService } from '../../shared/services/produit.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  produit : Produit |undefined=undefined;
-  composition:SubMenu|null=null;
-  frites:SubMenu|null=null;
-  tailles:Taille|null=null;
-  qte=1;
-  constructor(private service: ProduitService,public route: ActivatedRoute) { }
+  produit: Produit | undefined = undefined;
+  composition: SubMenu | null = null;
+  frites: SubMenu | null = null;
+  tailles: Taille | null = null;
+  message:string = '';
+  qte = 1;
+  tab: any[] = []
+  constructor(private service: ProduitService, public route: ActivatedRoute) { }
   ngOnInit(): void {
     /* this.serv.getValue().subscribe(info =>{
       console.log(this.quantite)
@@ -27,35 +29,115 @@ export class DetailsComponent implements OnInit {
 
     let id = this.route.snapshot.paramMap.get('id');
 
-   this.service.one$(id).subscribe(data=>{
-   // console.log(data);
-    this.produit=data
-   })
+    this.service.one$(id).subscribe(data => {
+      // console.log(data);
+      this.produit = data
+    })
   }
-  activeTab:string = 'search';
+  activeTab: string = 'search';
 
-  search(activeTab:string){
+  search(activeTab: string) {
     this.activeTab = activeTab;
   }
 
-  result(activeTab:string){
+  result(activeTab: string) {
     this.activeTab = activeTab;
   }
 
-  //fontSizePx=16;
-  /* ok(){
-    if(this.quantite>this.produit?.menu.menuTailles)
-    {
-      alert ('ok');
+  btnQte = 1
+  recupQte(event: any) {
+    this.btnQte = event;
+  }
+  quantity = 0
+
+  nbr(event: any) {
+    this.quantity = event
+  }
+
+  recupObj(event: any) {
+    var nbr = this.quantity
+    if (this.tab.length == 0) {
+      let object = {
+        idTaille: event.idTaille,
+        quantite: event.quantite,
+        boisson: [
+          {
+            idBoisson: event.jus.idBoisson,
+            nbr: nbr
+          }
+        ]
+      }
+      this.tab.push(object);
     }
-  } */
-  btnQte=1
-  recupQte(event:any){
-    this.btnQte=event;
-  }
+    else {
+      var isFound = false;
+      this.tab.map(data => {
+        if (data.idTaille == event.idTaille) {
+          isFound = true;
+        }
+      })
+      if (isFound == false) {
+        let object = {
+          idTaille: event.idTaille,
+          quantite: event.quantite,
+          boisson: [
+            {
+              idBoisson: event.jus.idBoisson,
+              nbr: nbr
+            }
+          ]
+        }
 
-  yaLien(event:any)
-  {
-    alert(event);
+        this.tab.push(object);
+      }
+      else{
+        this.tab.map(data => {
+          if (data.idTaille == event.idTaille) {
+            let ObjB={
+              idBoisson: event.jus.idBoisson,
+              nbr: nbr
+            }
+            let tabB: any[]=data.boisson
+            let FoundB=false
+            tabB.map((juice,i)=>{
+              if (juice.idBoisson == event.jus.idBoisson)
+              {
+                FoundB=true
+                data.boisson[i]=ObjB
+              }
+            })
+            if(FoundB==false)
+            {
+              tabB.push(ObjB)
+            }
+          }
+          
+        })
+      }
+    }
+
+    //----------------------------------VALIDATION-------------------------------------
+    
+    this.ShowError(this.tab)
   }
+  ShowError(tab:any[]){
+    let totalNbr=0
+   tab.forEach(data=>{
+    let tabB:any[]=data.boisson
+      tabB.forEach(boisson=>{
+       totalNbr += boisson.nbr
+        if(data.quantite< totalNbr){
+          this.message='Dafa eupp'
+        }
+        else if(data.quantite==totalNbr){
+          this.message='matna'
+
+        }
+        else{
+          this.message=''
+        }
+      })
+    })
+  }
+ 
 }

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MinusCountComponent } from 'src/app/layout/minus-count/minus-count.component';
 import { Boisson } from '../../shared/models/Boisson';
 
 @Component({
@@ -20,11 +21,11 @@ export class BoissonsComponent implements OnInit {
   {
     console.log(event);
   } */
-  size=0
+  quantity=0
   valid(event:any)
   {
-    this.size=event
-    this.juiceChanged.emit(this.size);
+    this.quantity=event
+    this.juiceChanged.emit(this.quantity);
   }
  
 }

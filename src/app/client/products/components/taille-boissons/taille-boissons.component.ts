@@ -12,52 +12,35 @@ export class TailleBoissonsComponent implements OnInit {
   @Input() tailles: MenuTaille | undefined = undefined;
   @Input() otherTaille: Taille | undefined = undefined;
   @Input() btnQte: number = 1;
-  @Output() objetBoissonChange: EventEmitter<any> = new EventEmitter(); 
+  @Output() objetBoissonChange: EventEmitter<any> = new EventEmitter();
+  @Output() nbrChange: EventEmitter<any> = new EventEmitter();
   qte = 0
   constructor() { }
 
+  quantity = 0
   ngOnInit(): void {
-
+   // console.log(this?.tailles.length)
+    
   }
-  testValid:boolean=false;
-  quantity: number = 0;
-  size = 0
+  testValid: boolean = false;
   validQte(event: any) {
-    this.size = event
+    this.quantity = event
+  this.nbrChange.emit(this.quantity);
   }
   newVal = 0
-  tab:number[]=[]
-  valid(idBoisson:any, idTaille:any,quantite:number) {
-     var obj={
-      idBoisson:idBoisson,
-      idTaille:idTaille,
-      quantite:quantite
-    }
-    this.objetBoissonChange.emit('ya lien')
+  valid(idBoisson: any, idTaille: any, quantite: number) {
 
-
-    /* if (taille == this.tailles?.taille?.libelle) {
-      alert(taille)
-      this.newVal=this.size;
-      this.tab.push(this.newVal)
-      console.log(this.tab)
-      if (this.newVal > quantite) {
-        console.log(this.newVal)
-       // this.testValid=true;
+    let object = {
+      idTaille: idTaille,
+      quantite: quantite,
+      jus: {
+        idBoisson: idBoisson,
+        nbr: this.quantity
       }
-
-      else {
-       // alert('ok')
-       //this.testValid=false;
-      }
-    } */
-  }
-
-  message(){
-    if(this.testValid==true)
-    {
-      return 'dafa euppp'
     }
-    return ''
+    //alert(object.idTaille)
+    this.objetBoissonChange.emit(object)
+
   }
+  
 }

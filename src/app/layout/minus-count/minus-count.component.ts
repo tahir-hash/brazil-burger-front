@@ -1,4 +1,5 @@
-import { Component,EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component,ElementRef,EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { ServiceEventService } from 'src/app/client/products/shared/services/service-event.service';
 
 @Component({

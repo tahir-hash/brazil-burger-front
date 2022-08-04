@@ -1,7 +1,6 @@
 <ng-container *ngIf="tailles" >
     <div class="taille d-flex">
         <h4 class="type" style="color: #D4401F;">{{tailles.taille?.libelle}}({{tailles.quantite*btnQte}})</h4> 
-        <small style="color: red;">{{message()}}</small>
         <div class="boissons d-flex mb-5">
             <ng-container *ngFor="let boisson of tailles?.taille?.boissonTailles">
                {{boisson?.boisson?.id}}
