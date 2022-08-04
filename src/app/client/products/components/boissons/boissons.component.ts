@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MinusCountComponent } from 'src/app/layout/minus-count/minus-count.component';
-import { Boisson } from '../../shared/models/Boisson';
+import { Boisson } from '../../../../shared/models/Boisson';
 
 @Component({
   selector: 'mtm-boissons',

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Produit } from '../../shared/models/produit';
-import { SubMenu } from '../../shared/models/SubMenu';
+import { Produit } from '../../../../shared/models/produit';
+import { SubMenu } from '../../../../shared/models/SubMenu';
 
 @Component({
   selector: 'mtm-composition',

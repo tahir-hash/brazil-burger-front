@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { filter, map, mergeAll, Observable, tap } from 'rxjs';
-import { Catalogue } from '../../shared/models/catalogue';
-import {Produit } from '../../shared/models/produit';
-import { ProduitService } from '../../shared/services/produit.service';
+import { Catalogue } from '../../../../shared/models/catalogue';
+import {Produit } from '../../../../shared/models/produit';
+import { ProduitService } from '../../../../shared/services/produit.service';
 
 @Component({
   selector: 'mtm-catalogue',

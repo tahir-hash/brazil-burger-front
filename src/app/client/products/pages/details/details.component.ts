@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Boisson } from '../../shared/models/Boisson';
-import { Produit } from '../../shared/models/produit';
-import { SubMenu } from '../../shared/models/SubMenu';
-import { Taille } from '../../shared/models/Taille';
-import { ProduitService } from '../../shared/services/produit.service';
+import { Boisson } from '../../../../shared/models/Boisson';
+import { Produit } from '../../../../shared/models/produit';
+import { SubMenu } from '../../../../shared/models/SubMenu';
+import { Taille } from '../../../../shared/models/Taille';
+import { ProduitService } from '../../../../shared/services/produit.service';
 
 @Component({
   selector: 'mtm-details',
@@ -30,7 +30,6 @@ export class DetailsComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
 
     this.service.one$(id).subscribe(data => {
-      // console.log(data);
       this.produit = data
     })
   }

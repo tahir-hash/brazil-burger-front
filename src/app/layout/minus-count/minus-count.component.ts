@@ -1,6 +1,6 @@
 import { Component,ElementRef,EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { ServiceEventService } from 'src/app/client/products/shared/services/service-event.service';
+import { ServiceEventService } from 'src/app/shared/services/service-event.service';
 
 @Component({
   selector: 'mtm-minus-count',

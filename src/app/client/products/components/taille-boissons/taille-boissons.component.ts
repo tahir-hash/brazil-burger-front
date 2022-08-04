@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Boisson } from '../../shared/models/Boisson';
-import { MenuTaille } from '../../shared/models/MenuTaille';
-import { Taille } from '../../shared/models/Taille';
+import { Boisson } from '../../../../shared/models/Boisson';
+import { MenuTaille } from '../../../../shared/models/MenuTaille';
+import { Taille } from '../../../../shared/models/Taille';
 
 @Component({
   selector: 'mtm-taille-boissons',

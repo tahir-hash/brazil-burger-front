@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Produit } from '../../shared/models/produit';
+import { Produit } from '../../../../shared/models/produit';
 
 @Component({
   selector: 'mtm-details-desc',
