@@ -28,14 +28,14 @@ export class TailleBoissonsComponent implements OnInit {
   this.nbrChange.emit(this.quantity);
   }
   newVal = 0
-  valid(idBoisson: any, idTaille: any, quantite: number) {
-
+  valid(idBoisson: any,stock:any, idTaille: any, quantite: number) {
     let object = {
       idTaille: idTaille,
       quantite: quantite,
       jus: {
         idBoisson: idBoisson,
-        nbr: this.quantity
+        nbr: this.quantity,
+        stock: stock
       }
     }
     //alert(object.idTaille)
