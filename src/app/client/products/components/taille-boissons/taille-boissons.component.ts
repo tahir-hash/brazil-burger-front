@@ -27,7 +27,6 @@ export class TailleBoissonsComponent implements OnInit {
     this.quantity = event
   this.nbrChange.emit(this.quantity);
   }
-  newVal = 0
   valid(idBoisson: any,stock:any, idTaille: any, quantite: number) {
     let object = {
       idTaille: idTaille,
@@ -43,4 +42,22 @@ export class TailleBoissonsComponent implements OnInit {
 
   }
   
+  //other
+  validQte1(event: any) {
+    this.quantity = event
+  this.nbrChange.emit(this.quantity);
+  }
+  valid1(idBoisson: any,stock:any, idTaille: any) {
+    let object = {
+      idTaille: idTaille,
+      jus: {
+        idBoisson: idBoisson,
+        nbr: this.quantity,
+        stock: stock
+      }
+    }
+    //alert(object.idTaille)
+    this.objetBoissonChange.emit(object)
+
+  }
 }

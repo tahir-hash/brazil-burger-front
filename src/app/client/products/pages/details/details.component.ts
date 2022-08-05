@@ -17,6 +17,8 @@ export class DetailsComponent implements OnInit {
   frites: SubMenu | null = null;
   tailles: Taille | null = null;
   message: string = '';
+  message1: string = '';
+
   qte = 1;
   tab: any[] = []
   constructor(private service: ProduitService, public route: ActivatedRoute) { }
@@ -126,18 +128,106 @@ export class DetailsComponent implements OnInit {
       let tabB: any[] = data.boisson
       tabB.forEach(boisson => {
         totalNbr += boisson.nbr
-        if (data.quantite < totalNbr) {
-          this.message = 'Dafa eupp'
-        }
-        else if (data.quantite == totalNbr) {
+        if (data.quantite == totalNbr) {
           this.message = 'matna'
 
         }
         else if(boisson.nbr>boisson.stock){
           this.message='diekhna'
         }
+        else if (data.quantite < totalNbr) {
+          this.message = 'Dafa eupp'
+        }
         else {
           this.message = ''
+        }
+      })
+    })
+  }
+
+  //other
+
+
+  nbr1(event: any) {
+    this.quantity = event
+  }
+
+  recupObj1(event: any) {
+    var nbr = this.quantity
+    if (this.tab.length == 0) {
+      let object = {
+        idTaille: event.idTaille,
+        boisson: [
+          {
+            idBoisson: event.jus.idBoisson,
+            nbr: nbr,
+            stock: event.jus.stock,
+          }
+        ]
+      }
+      this.tab.push(object);
+    }
+    else {
+      var isFound = false;
+      this.tab.map(data => {
+        if (data.idTaille == event.idTaille) {
+          isFound = true;
+        }
+      })
+      if (isFound == false) {
+        let object = {
+          idTaille: event.idTaille,
+          boisson: [
+            {
+              idBoisson: event.jus.idBoisson,
+              nbr: nbr
+            }
+          ]
+        }
+
+        this.tab.push(object);
+      }
+      else {
+        this.tab.map(data => {
+          if (data.idTaille == event.idTaille) {
+            let ObjB = {
+              idBoisson: event.jus.idBoisson,
+              nbr: nbr,
+              stock: event.jus.stock,
+
+            }
+            let tabB: any[] = data.boisson
+            let FoundB = false
+            tabB.map((juice, i) => {
+              if (juice.idBoisson == event.jus.idBoisson) {
+                FoundB = true
+                data.boisson[i] = ObjB
+              }
+            })
+            if (FoundB == false) {
+              tabB.push(ObjB)
+            }
+          }
+
+        })
+      }
+    }
+    console.log()
+    //----------------------------------VALIDATION-------------------------------------
+
+    this.ShowError1(this.tab)
+  }
+  ShowError1(tab: any[]) {
+    let totalNbr = 0
+    tab.forEach(data => {
+      let tabB: any[] = data.boisson
+      tabB.forEach(boisson => {
+        totalNbr += boisson.nbr
+        if(boisson.nbr>boisson.stock){
+          this.message1='diekhna'
+        }
+        else {
+          this.message1 = ''
         }
       })
     })

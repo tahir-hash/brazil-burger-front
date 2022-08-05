@@ -9,6 +9,7 @@ import { Boisson } from '../../../../shared/models/Boisson';
 })
 export class BoissonsComponent implements OnInit {
   @Input() boisson:Boisson | undefined = undefined;
+  @Input() otherBoisson:Boisson | undefined = undefined;
   @Input() juice: any |undefined = undefined;
   @Output() juiceChanged: EventEmitter<any> = new EventEmitter();
   qte=0

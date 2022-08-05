@@ -81,8 +81,10 @@
           [ngClass]="{ active: activeTab === 'search' }"
         >
           <div class="choice d-flex mb-4 flex-column p-3">
+        <h1 style="color: red;">{{message1}}</h1>
             <ng-container *ngFor="let otherTaille of produit?.boissons">
-              <mtm-taille-boissons [otherTaille]="otherTaille"></mtm-taille-boissons>
+              <mtm-taille-boissons (objetBoissonChange)="recupObj1($event)"
+              (nbrChange)="nbr1($event)" [otherTaille]="otherTaille"></mtm-taille-boissons>
             </ng-container>
           </div>
         </div>
