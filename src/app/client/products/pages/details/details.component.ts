@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/shared/services/cart.service';
 import { Boisson } from '../../../../shared/models/Boisson';
 import { Produit } from '../../../../shared/models/produit';
 import { SubMenu } from '../../../../shared/models/SubMenu';
@@ -18,16 +19,19 @@ export class DetailsComponent implements OnInit {
   tailles: Taille | null = null;
   message: string = '';
   message1: string = '';
-
+  count:number = 0;
   qte = 1;
   tab: any[] = []
-  constructor(private service: ProduitService, public route: ActivatedRoute) { }
+  constructor(private service: ProduitService, public route: ActivatedRoute, private cart:CartService) { }
   ngOnInit(): void {
     /* this.serv.getValue().subscribe(info =>{
       console.log(this.quantite)
      // this.quantite=0
       this.quantite+=info
    }) */
+    this.cart.numOfItems.subscribe(info=>{
+      this.count=info.length;
+    })
 
     let id = this.route.snapshot.paramMap.get('id');
 

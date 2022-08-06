@@ -12,6 +12,8 @@ export class TailleBoissonsComponent implements OnInit {
   @Input() tailles: MenuTaille | undefined = undefined;
   @Input() otherTaille: Taille | undefined = undefined;
   @Input() btnQte: number = 1;
+  @Input() message1: string = '';
+
   @Output() objetBoissonChange: EventEmitter<any> = new EventEmitter();
   @Output() nbrChange: EventEmitter<any> = new EventEmitter();
   qte = 0

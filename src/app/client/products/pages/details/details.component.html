@@ -1,6 +1,5 @@
 
-
-<mtm-header></mtm-header>
+<mtm-header [count]="count"></mtm-header>
 <ng-container *ngIf="produit == undefined">
   <mtm-loader></mtm-loader>
 </ng-container>
@@ -81,9 +80,11 @@
           [ngClass]="{ active: activeTab === 'search' }"
         >
           <div class="choice d-flex mb-4 flex-column p-3">
-        <h1 style="color: red;">{{message1}}</h1>
+        <div class="notif">
+          <h6  style="color: red;">{{message1}}</h6>
+        </div>
             <ng-container *ngFor="let otherTaille of produit?.boissons">
-              <mtm-taille-boissons (objetBoissonChange)="recupObj1($event)"
+              <mtm-taille-boissons [message1]="message1" (objetBoissonChange)="recupObj1($event)"
               (nbrChange)="nbr1($event)" [otherTaille]="otherTaille"></mtm-taille-boissons>
             </ng-container>
           </div>

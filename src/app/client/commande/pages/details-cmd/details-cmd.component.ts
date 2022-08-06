@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DetailsCmdComponent implements OnInit {
   @Input('panier') panier : boolean = false;
+  count:number = 0;
   constructor() { }
 
   ngOnInit(): void {

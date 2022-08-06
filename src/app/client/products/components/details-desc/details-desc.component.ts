@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CartService } from 'src/app/shared/services/cart.service';
 import { Produit } from '../../../../shared/models/produit';
 
 @Component({
@@ -10,7 +11,7 @@ export class DetailsDescComponent implements OnInit {
 @Input() details:Produit| undefined = undefined;
  btnQte=1;
 @Output() btnQteChange = new EventEmitter<number>();
-constructor() { }
+constructor(private cart:CartService) { }
   attr_dis=false;
   
   ngOnInit(): void {
@@ -27,5 +28,8 @@ constructor() { }
 
   ok(){
     alert("ok");
+  }
+  addToCart(det:Produit|undefined){
+    this.cart.add(det);
   }
 }

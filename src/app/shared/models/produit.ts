@@ -9,6 +9,7 @@ export interface Produit {
   menu?:any
   boissons?:any
   frites?:any
-  burger?:any
+  burger?:any,
+  qty?: number
 }
 

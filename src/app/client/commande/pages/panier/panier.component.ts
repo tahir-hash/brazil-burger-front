@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'mtm-panier',
@@ -7,10 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PanierComponent implements OnInit {
   @Input('panier') panier : boolean = true;
-
-  constructor() { }
+  count:number = 0;
+  constructor(private cart:CartService) { }
 
   ngOnInit(): void {
+    this.cart.numOfItems.subscribe(data=>{
+      //this.count = data.length;
+      console.log(data)
+    })
   }
 
 }
