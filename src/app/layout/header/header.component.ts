@@ -12,8 +12,8 @@ count:number=0
 
   ngOnInit(): void {
     this.cart.numOfItems.subscribe(info=>{
-      console.log(info)
       this.count=info.length;
+      console.log(info)
     })
   }
 
