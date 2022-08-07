@@ -8,7 +8,9 @@ import { Produit } from '../models/produit';
 export class CartService {
   cart:Produit[]=[];
   numOfItems=new BehaviorSubject<Produit[]>([]);
-  constructor() { }
+  constructor() {
+    const ls= JSON.parse(localStorage.getItem('cart'));
+   }
 
   
   add(product:Produit|undefined){

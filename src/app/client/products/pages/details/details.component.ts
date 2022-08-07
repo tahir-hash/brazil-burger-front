@@ -19,7 +19,6 @@ export class DetailsComponent implements OnInit {
   tailles: Taille | null = null;
   message: string = '';
   message1: string = '';
-  count:number = 0;
   qte = 1;
   tab: any[] = []
   constructor(private service: ProduitService, public route: ActivatedRoute, private cart:CartService) { }
@@ -29,9 +28,7 @@ export class DetailsComponent implements OnInit {
      // this.quantite=0
       this.quantite+=info
    }) */
-    this.cart.numOfItems.subscribe(info=>{
-      this.count=info.length;
-    })
+   
 
     let id = this.route.snapshot.paramMap.get('id');
 
