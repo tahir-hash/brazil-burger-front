@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Cart } from 'src/app/shared/models/cart';
 import { Produit } from 'src/app/shared/models/produit';
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -9,7 +10,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
 })
 export class PanierComponent implements OnInit {
   @Input('panier') panier : boolean = true;
-  items:Produit[]=[];
+  items:Cart={};
 
   constructor(private cart:CartService) { }
   activeTab: string = 'search';
@@ -22,9 +23,12 @@ export class PanierComponent implements OnInit {
     this.activeTab = activeTab;
   }
   ngOnInit(): void {
-    this.cart.numOfItems.subscribe((data:Produit[]) => {
-      this.items=data
+    this.cart.Panier.subscribe(data=>{
+      this.items = data;
     })
+    /* this.cart.numOfItems.subscribe((data:Cart) => {
+      this.items=data
+    }) */
   }
 
 }

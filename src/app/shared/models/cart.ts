@@ -7,5 +7,6 @@ export interface Cart {
     burgerCommandes?:BurgerCommande[]
     portionFriteCommandes?:PortionFriteCommande[]
     boissonTailleCommandes?:BoissonTailleCommande[]
-    menuCommandes?:MenuCommande[]
+    menuCommandes?:MenuCommande[],
+    all?:[]
 }

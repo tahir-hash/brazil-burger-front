@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BurgerCommande } from 'src/app/shared/models/burger-commande';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { Produit } from '../../../../shared/models/produit';
 
@@ -29,7 +30,17 @@ constructor(private cart:CartService) { }
   ok(){
     alert("ok");
   }
-  addToCart(det:Produit|undefined){
-    this.cart.add(det);
+
+  addToCart(det:Produit|undefined){    
+    if(det?.type=='burger'){
+      
+      let obj={
+        quantite:this.btnQte,
+        burger: det
+      }
+      this.cart.addBurger(obj)
+      console.log(this.cart.Panier.value)
+    }
+    
   }
 }

@@ -20,7 +20,6 @@ export class ProduitService {
           burgers: data['hydra:member'][0]['burgers'],
           menus: data['hydra:member'][1]['menus'],
         }
-        console.log(catalogue)
         data.getAll=[...catalogue.burgers,...catalogue.menus]
         return data;
       })

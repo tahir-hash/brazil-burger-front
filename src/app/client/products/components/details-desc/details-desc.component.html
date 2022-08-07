@@ -8,7 +8,7 @@
         <div class="describe mt-5 d-flex justify-content-around">
             
             <h4>{{details?.description}}</h4>
-            <button  (click)="addToCart(details)"  data-toggle="tooltip" data-placement="bottom" title="Ajouter au panier">
+            <button routerLink="/client/products/catalogue"  (click)="addToCart(details)"  data-toggle="tooltip" data-placement="bottom" title="Ajouter au panier">
                 <h3 class="mb-1 mt-1">J'achète</h3>
             </button>
         </div>
