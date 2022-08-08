@@ -114,6 +114,19 @@ export class CartService {
       return this.Panier.next({...this.Panier.value,
         burgerCommandes: this.Panier.value.burgerCommandes})
     }
+    if (object.type == 'menu') {
+      this.Panier.value.menuCommandes?.map((data, i) => {
+        if (data.menu.id == object?.id) {
+          this.Panier.value.menuCommandes?.splice(i, 1)
+        }
+      })
+      localStorage.setItem('cart', JSON.stringify({
+        ...this.Panier.value,
+        menuCommandes: this.Panier.value.menuCommandes
+      }));
+      return this.Panier.next({...this.Panier.value,
+        menuCommandes: this.Panier.value.menuCommandes})
+    }
     return this.Panier.next
   }
 }
