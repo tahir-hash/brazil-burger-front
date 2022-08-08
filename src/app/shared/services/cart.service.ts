@@ -129,4 +129,19 @@ export class CartService {
     }
     return this.Panier.next
   }
+
+  getMontant(){
+   let total=0
+    this.Panier.value.burgerCommandes?.map(data=>{
+      if(data.burger.prix){
+        total+=data.burger.prix*data.quantite;
+      }
+    })
+    this.Panier.value.menuCommandes?.map(data=>{
+      if(data.menu.prix){
+        total+=data.menu.prix;
+      }
+    })
+    return total;
+  }
 }

@@ -131,13 +131,18 @@ export class DetailsComponent implements OnInit {
         totalNbr += boisson.nbr
         if (data.quantite == totalNbr) {
           this.message = 'matna'
+         // alert('matna')
 
         }
         else if(boisson.nbr>boisson.stock){
           this.message='diekhna'
+          //alert('diekhna')
+
         }
         else if (data.quantite < totalNbr) {
           this.message = 'Dafa eupp'
+          //alert('dafa eupp')
+
         }
         else {
           this.message = ''

@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutModule } from './layout/layout.module';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { LoaderComponent } from './layout/loader/loader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,11 @@ import { LoaderComponent } from './layout/loader/loader.component';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

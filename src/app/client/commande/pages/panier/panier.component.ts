@@ -15,7 +15,8 @@ export class PanierComponent implements OnInit {
   items:Cart={
     all:[]
   };
- qrt:Quartier[]=[]
+  prix: number=0
+  qrt:Quartier[]=[]
   constructor(private cart:CartService,private quartier:QuartiersService) { }
   
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class PanierComponent implements OnInit {
         data.all=[...data.burgerCommandes,...data.menuCommandes]; 
       }
       this.items=data
+      this.prix=this.cart.getMontant()
     })
     
     this.quartier.getQuartier$().subscribe(quart=>{
@@ -46,4 +48,6 @@ export class PanierComponent implements OnInit {
     this.activeTab = activeTab;
   }
 
+
+  
 }
