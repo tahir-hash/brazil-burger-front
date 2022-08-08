@@ -7,6 +7,7 @@ import { PanierComponent } from './pages/panier/panier.component';
 import { LayoutModule } from 'src/app/layout/layout.module';
 import { MesCommandesComponent } from './pages/mes-commandes/mes-commandes.component';
 import { RouterModule } from '@angular/router';
+import { EmptyCartComponent } from './components/empty-cart/empty-cart.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
     CommandeComponent,
     PanierComponent,
     MesCommandesComponent,
+    EmptyCartComponent,
   ],
   imports: [
     CommonModule,

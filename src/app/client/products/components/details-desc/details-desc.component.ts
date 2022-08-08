@@ -39,7 +39,14 @@ constructor(private cart:CartService) { }
         burger: det
       }
       this.cart.addBurger(obj)
-      console.log(this.cart.Panier.value)
+    }
+    if(det?.type=='menu'){
+      
+      let obj={
+        quantite:this.btnQte,
+        menu: det
+      }
+      this.cart.addMenu(obj)
     }
     
   }

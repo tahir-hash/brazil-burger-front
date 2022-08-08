@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { BurgerCommande } from '../models/burger-commande';
 import { Cart } from '../models/cart';
+import { MenuCommande } from '../models/menu-commande';
 import { Produit } from '../models/produit';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  
+
   private panierSave: Cart = {
     burgerCommandes: [],
     portionFriteCommandes: [],
     boissonTailleCommandes: [],
     menuCommandes: [],
+    all: []
   }
   Panier = new BehaviorSubject<Cart>(this.panierSave);
 
@@ -26,31 +28,12 @@ export class CartService {
     }
   }
 
-
-  /* add(product: Produit | undefined) {
-    let ls = JSON.parse(localStorage.getItem('cart') || 'null')
-    if (ls) {
-      const newData = [...ls, product]
-      localStorage.setItem('cart', JSON.stringify(newData));
-      // this.cart.push(product);
-      this.numOfItems.next(JSON.parse(localStorage.getItem('cart') || 'null'))
-      //console.log(this.cart)
-    }
-    else {
-      if (product) {
-        this.cart.push(product);
-        localStorage.setItem('cart', JSON.stringify(this.cart));
-        this.numOfItems.next(this.cart)
-      }
-    }
-
-  } */
-
   addBurger(burger: BurgerCommande) {
     let ls = JSON.parse(localStorage.getItem('cart') || 'null')
     let found = false
     this.Panier.value.burgerCommandes?.map(data => {
       if (data.burger?.id == burger.burger?.id) {
+        data.quantite = Number(data.quantite)
         data.quantite += Number(burger.quantite)
         found = true
       }
@@ -58,18 +41,79 @@ export class CartService {
     })
 
     if (!found) {
-      localStorage.setItem('cart', JSON.stringify(this.Panier));
-      return this.Panier.next(
-      {
-        ...this.Panier.value, 
+      localStorage.setItem('cart', JSON.stringify({
+        ...this.Panier.value,
         burgerCommandes: this.Panier.value.burgerCommandes?.concat(burger)
+      }));
+      return this.Panier.next(
+        {
+          ...this.Panier.value,
+          burgerCommandes: this.Panier.value.burgerCommandes?.concat(burger)
 
-      }
+        }
       )
     }
-    else{
+    else {
+      localStorage.setItem('cart', JSON.stringify({
+        ...this.Panier.value,
+        burgerCommandes: this.Panier.value.burgerCommandes
+      }));
       this.Panier.next
     }
+
   }
 
+
+  addMenu(menu: MenuCommande) {
+    let ls = JSON.parse(localStorage.getItem('cart') || 'null')
+    let found = false
+    this.Panier.value.menuCommandes?.map(data => {
+      if (data.menu?.id == menu.menu?.id) {
+        data.quantite = Number(data.quantite)
+        data.quantite += Number(menu.quantite)
+        found = true
+      }
+      return data
+    })
+
+    if (!found) {
+      localStorage.setItem('cart', JSON.stringify({
+        ...this.Panier.value,
+        menuCommandes: this.Panier.value.menuCommandes?.concat(menu)
+      }));
+      return this.Panier.next(
+        {
+          ...this.Panier.value,
+          menuCommandes: this.Panier.value.menuCommandes?.concat(menu)
+
+        }
+      )
+    }
+    else {
+      localStorage.setItem('cart', JSON.stringify({
+        ...this.Panier.value,
+        menuCommandes: this.Panier.value.menuCommandes
+      }));
+      this.Panier.next
+    }
+
+  }
+
+
+  remove(object: any) {
+    if (object.type == 'burger') {
+      this.Panier.value.burgerCommandes?.map((data, i) => {
+        if (data.burger.id == object?.id) {
+          this.Panier.value.burgerCommandes?.splice(i, 1)
+        }
+      })
+      localStorage.setItem('cart', JSON.stringify({
+        ...this.Panier.value,
+        burgerCommandes: this.Panier.value.burgerCommandes
+      }));
+      return this.Panier.next({...this.Panier.value,
+        burgerCommandes: this.Panier.value.burgerCommandes})
+    }
+    return this.Panier.next
+  }
 }

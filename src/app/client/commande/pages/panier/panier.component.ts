@@ -10,25 +10,23 @@ import { CartService } from 'src/app/shared/services/cart.service';
 })
 export class PanierComponent implements OnInit {
   @Input('panier') panier : boolean = true;
-  items:Cart={};
-
+  items:Cart={
+    all:[]
+  };
+ 
   constructor(private cart:CartService) { }
-  activeTab: string = 'search';
-
-  search(activeTab: string) {
-    this.activeTab = activeTab;
-  }
-
-  result(activeTab: string) {
-    this.activeTab = activeTab;
-  }
+  
   ngOnInit(): void {
     this.cart.Panier.subscribe(data=>{
-      this.items = data;
-    })
-    /* this.cart.numOfItems.subscribe((data:Cart) => {
+      if(data.burgerCommandes && data.menuCommandes && data.boissonTailleCommandes && data.portionFriteCommandes){
+        data.all=[...data.burgerCommandes,...data.menuCommandes]; 
+      }
       this.items=data
-    }) */
+    })
+  
+  }
+  removeToCart(obj:any) {
+    this.cart.remove(obj);
   }
 
 }

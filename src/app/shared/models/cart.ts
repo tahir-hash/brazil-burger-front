@@ -8,5 +8,5 @@ export interface Cart {
     portionFriteCommandes?:PortionFriteCommande[]
     boissonTailleCommandes?:BoissonTailleCommande[]
     menuCommandes?:MenuCommande[],
-    all?:[]
+    all:any[]
 }
