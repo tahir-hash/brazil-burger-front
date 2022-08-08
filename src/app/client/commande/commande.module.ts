@@ -8,6 +8,9 @@ import { LayoutModule } from 'src/app/layout/layout.module';
 import { MesCommandesComponent } from './pages/mes-commandes/mes-commandes.component';
 import { RouterModule } from '@angular/router';
 import { EmptyCartComponent } from './components/empty-cart/empty-cart.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { EmptyCartComponent } from './components/empty-cart/empty-cart.component
     CommonModule,
     CommandeRoutingModule,
     LayoutModule,
-    RouterModule
+    RouterModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatFormFieldModule
   ]
 })
 export class CommandeModule { }

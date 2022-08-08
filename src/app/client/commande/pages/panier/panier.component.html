@@ -6,7 +6,18 @@
   <div class="container">
     <div>
       <h3 class="mb-3 mt-5">Mon Panier</h3>
-      
+      <!-- autocomplete -->
+      <form action="">
+        <mat-form-field>
+          <input type="text"  [matAutocomplete]="auto" matInput/>
+          <mat-autocomplete #auto = "matAutocomplete">
+            <mat-option *ngFor="let quartier of qrt" [value]="quartier.id">
+              {{quartier.libelle}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        
+      </form>
     </div>
    <div class="contain d-grid ">
     <div class="contain-cart p-3 col-7 shadow p-3 mb-5 bg-white rounded">
@@ -225,11 +236,13 @@
           </div>
         </div>
       </div>
+      
       <button *ngIf="panier==true"><h3 class="mb-1 mt-1">Je Valide</h3></button>
   </div>
-
+  
    </div>
 
 </div>
 </ng-container>
+
 <mtm-footer></mtm-footer>

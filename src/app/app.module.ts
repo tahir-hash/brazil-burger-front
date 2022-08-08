@@ -20,8 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatAutocompleteModule,
-    ReactiveFormsModule
+    
     ],
   providers: [],
   bootstrap: [AppComponent]
