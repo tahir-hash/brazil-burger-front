@@ -1,13 +1,12 @@
-{{items.all|json}}
 <mtm-header></mtm-header>
 <ng-container *ngIf="items.all.length<1">
 <mtm-empty-cart></mtm-empty-cart>
 </ng-container>
-
 <ng-container *ngIf="items.all.length>=1">
   <div class="container">
     <div>
       <h3 class="mb-3 mt-5">Mon Panier</h3>
+
     </div>
    <div class="contain d-grid ">
     <div class="contain-cart p-3 col-7 shadow p-3 mb-5 bg-white rounded">
@@ -166,19 +165,65 @@
   
   <div class="resume shadow p-3 mb-5 bg-white rounded">
       <h2>Total: <strong style="color:#d4401f;">8500 FCFA</strong></h2>
-      <div class="radio mt-2">
-          <input type="radio" name="livraison" id="" checked> A livrer
-          <input type="radio" name="livraison" id=""> Sur Place
-      </div>
-      <div class="coo mb-4 mt-3">
-         <div *ngIf="panier==true" class="form-group">
-          <label for="">Telephone</label>
-          <input  type="text" class="form-control">
-         </div>
-         <div *ngIf="panier==true" class="form-group">
-          <label for="">Adresse</label>
-          <input type="text" class="form-control">
-         </div>
+      <div id="tabs" #tabs>
+        <ul class="nav nav-pills d-flex tab">
+          <li class="nav-item">
+            <button
+              class="nav-link active text-dark"
+              [ngClass]="{ active: activeTab === 'search' }"
+              (click)="search('search')"
+              data-toggle="tab"
+            >
+              A livrer
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link text-dark"
+              [ngClass]="{ active: activeTab === 'result' }"
+              data-toggle="tab"
+              (click)="result('result')"
+            >
+              Sur place
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content mt-3">
+          <div
+            class="tab-pane"
+            id="search"
+            [ngClass]="{ active: activeTab === 'search' }"
+          >
+            <div class="choice d-flex mb-4 flex-column p-3">
+          
+              <ng-container >
+                <div class="coo mb-1 mt-1">
+                  <div *ngIf="panier==true" class="form-group">
+                   <label for="">Telephone</label>
+                   <input  type="text" class="form-control">
+                  </div>
+                  <div *ngIf="panier==true" class="form-group">
+                   <label for="">Adresse</label>
+                   <input type="text" class="form-control">
+                  </div>
+               </div>
+              </ng-container>
+            </div>
+          </div>
+          <div
+            class="tab-pane"
+            id="results"
+            [ngClass]="{ active: activeTab === 'result' }"
+          >
+            <div class="composition d-flex p-1">
+              <ng-container>
+                <div class="comp m-3">
+                 
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
       </div>
       <button *ngIf="panier==true"><h3 class="mb-1 mt-1">Je Valide</h3></button>
   </div>
