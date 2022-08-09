@@ -7,7 +7,6 @@ import { Login, Token } from '../models/Auth';
 })
 export class AuthService {
   private urlLogin='https://tahirbrazilburger.herokuapp.com/api/login_check'
-
   constructor(private http:HttpClient) { }
 
   
@@ -15,7 +14,5 @@ export class AuthService {
     return this.http.post<Token>(this.urlLogin, form)
   }
 
-  getToken(){
-    return localStorage.getItem('token');
-  }
+  
 }

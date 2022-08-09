@@ -7,7 +7,7 @@
     <div>
       <h3 class="mb-3 mt-5">Mon Panier</h3>
       <!-- autocomplete -->
-      
+      {{ok|json}}
         
     </div>
    <div class="contain d-grid ">
@@ -228,7 +228,7 @@
         </div>
       </div>
       
-      <button *ngIf="panier==true"><h3 class="mb-1 mt-1">Je Valide</h3></button>
+      <button (click)="validCmd()" *ngIf="panier==true"><h3 class="mb-1 mt-1">Je Valide</h3></button>
   </div>
   
    </div>

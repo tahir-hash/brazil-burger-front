@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Login } from 'src/app/shared/models/Auth';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { TokenService } from 'src/app/shared/services/token.service';
 
 @Component({
   selector: 'mtm-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
     login:'',
     password:'',
   }
-  constructor(private auth:AuthService,private router: Router, private  toast: NgToastService) { }
+  constructor(private auth:AuthService,private router: Router, private  toast: NgToastService
+    ,private token:TokenService) { }
 
   ngOnInit(): void {
   }
@@ -23,9 +25,12 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.auth.login(this.form).subscribe(
       data=>{
-        localStorage.setItem('token',data.token)
+        this.token.saveToken(data.token);
         this.router.navigate(['/client/products/catalogue']);
         this.toast.success({detail:"Connexion Reussie", summary:"Veuillez faire vos achats", duration:3000})
+      },
+      err=>{
+        this.toast.error({detail:"Failed", summary:"Erreur de connexion", duration:3000})
 
       }
     )

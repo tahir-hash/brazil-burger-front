@@ -10,11 +10,13 @@ import { Produit } from '../models/produit';
 })
 export class CartService {
 
+
   private panierSave: Cart = {
     burgerCommandes: [],
     portionFriteCommandes: [],
     boissonTailleCommandes: [],
     menuCommandes: [],
+    zone:{},
     all: []
   }
   Panier = new BehaviorSubject<Cart>(this.panierSave);
@@ -144,4 +146,18 @@ export class CartService {
     })
     return total;
   }
+
+  emptyCart(panier: any){
+    this.panierSave= {
+      burgerCommandes: [],
+      portionFriteCommandes: [],
+      boissonTailleCommandes: [],
+      menuCommandes: [],
+      zone:{},
+      all: []
+    }
+    localStorage.removeItem("cart");
+    return panier=new BehaviorSubject<Cart>(this.panierSave);
+ }
+  
 }

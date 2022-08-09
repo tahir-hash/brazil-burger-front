@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MesCommandesComponent implements OnInit {
 
+  enCours = "EN COURS"
+  valide = "VALIDEE"
+  annule = "ANNULEE"
+
   constructor() { }
 
   ngOnInit(): void {

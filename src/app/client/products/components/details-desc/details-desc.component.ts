@@ -52,6 +52,7 @@ constructor(private cart:CartService,private toast: NgToastService) { }
         quantite:this.btnQte,
         menu: {
           id:Number(det.id),
+          nom:det.nom,
           image:det.image,
           type:det.type,
           prix:det.prix,
