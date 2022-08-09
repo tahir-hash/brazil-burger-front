@@ -49,4 +49,5 @@ export class CountComponent implements OnInit {
     this.count.emit(input.value)
   }
 
+  
 }

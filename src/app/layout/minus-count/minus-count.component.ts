@@ -7,12 +7,14 @@ import { NgModel } from '@angular/forms';
   styleUrls: ['./minus-count.component.css']
 })
 export class MinusCountComponent implements OnInit {
-  //@Output() submit : EventEmitter<any> = new EventEmitter();
-  quantite=0;
+  @Output() disabled: EventEmitter<any> = new EventEmitter();
+  attr_dis=true;
+    quantite=0;
   constructor() {}
 
   ngOnInit(): void {
   }
+  
   qtyminus(input: any) {
     if(input != null)
     {
@@ -22,6 +24,7 @@ export class MinusCountComponent implements OnInit {
       newval = 1;
     }
     input.value = Number(newval);
+    this.disabled.emit(this.attr_dis);
     }
   }
 
@@ -31,7 +34,9 @@ export class MinusCountComponent implements OnInit {
     var current = Number(input.value);
     var newval = (current + 1);
     input.value = Number(newval);
+    this.disabled.emit(this.attr_dis);
     }
+
   }
 
  /*  onChange(event:any){

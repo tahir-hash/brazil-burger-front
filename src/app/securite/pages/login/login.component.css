@@ -3,3 +3,6 @@
     background-color: #D4401F;
     margin-right: 3%;
 }
+.form-error{
+    color: red;
+}

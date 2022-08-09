@@ -1,4 +1,4 @@
-
+{{commandeMenuBoissonTailles|json}}
 <mtm-header></mtm-header>
 <ng-container *ngIf="produit == undefined">
   <mtm-loader></mtm-loader>
@@ -8,6 +8,7 @@
     <ng-container *ngIf="route.snapshot.paramMap.get('type') == 'menu'">
       <mtm-details-desc
         (btnQteChange)="recupQte($event)"
+        [commandeMenuBoissonTailles]="commandeMenuBoissonTailles"
         [details]="produit.menu"
       ></mtm-details-desc>
     </ng-container>
@@ -41,6 +42,7 @@
             [btnQte]="btnQte"
             [tailles]="tailles"
             (objetBoissonChange)="recupObj($event)"
+            (objetBoissonChange)="recupObjCmd($event)"
             (nbrChange)="nbr($event)"
           ></mtm-taille-boissons>
         </ng-container>
@@ -94,7 +96,9 @@
           [ngClass]="{ active: activeTab === 'result' }"
         >
           <div class="composition d-flex p-1">
+          
             <ng-container *ngFor="let otherFrite of produit?.frites">
+              <mtm-minus-count></mtm-minus-count>
               <div class="comp m-3">
                 <img
                   class="rounded-circle mx-auto mt-2"

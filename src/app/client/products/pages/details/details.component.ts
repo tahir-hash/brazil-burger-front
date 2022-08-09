@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
+import { ToastrService } from 'ngx-toastr';
+import { BoissonTaille } from 'src/app/shared/models/boisson-taille';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { Boisson } from '../../../../shared/models/Boisson';
 import { Produit } from '../../../../shared/models/produit';
@@ -21,7 +24,9 @@ export class DetailsComponent implements OnInit {
   message1: string = '';
   qte = 1;
   tab: any[] = []
-  constructor(private service: ProduitService, public route: ActivatedRoute, private cart:CartService) { }
+  commandeMenuBoissonTailles: BoissonTaille[] = []
+
+  constructor(private service: ProduitService, public route: ActivatedRoute, private cart:CartService,private toast: NgToastService) { }
   ngOnInit(): void {
     /* this.serv.getValue().subscribe(info =>{
       console.log(this.quantite)
@@ -70,12 +75,24 @@ export class DetailsComponent implements OnInit {
           }
         ]
       }
+      let cmd={
+        quantite:nbr,
+        boissonTaille:{
+          id:Number(event.jus.idBoisson)
+        }
+      }
+      this.commandeMenuBoissonTailles.push(cmd)
       this.tab.push(object);
     }
     else {
       var isFound = false;
       this.tab.map(data => {
         if (data.idTaille == event.idTaille) {
+          isFound = true;
+        }
+      })
+      this.commandeMenuBoissonTailles.map(data => {
+        if (data.boissonTaille.id == event.jus.idBoisson) {
           isFound = true;
         }
       })
@@ -90,7 +107,14 @@ export class DetailsComponent implements OnInit {
             }
           ]
         }
-
+        //commandeMenuBoissonTailles
+        let cmd={
+          quantite:nbr,
+          boissonTaille:{
+            id:event.jus.idBoisson
+          }
+        }
+        this.commandeMenuBoissonTailles.push(cmd)
         this.tab.push(object);
       }
       else {
@@ -116,33 +140,41 @@ export class DetailsComponent implements OnInit {
           }
 
         })
+        this.commandeMenuBoissonTailles.map(data => {
+          let FoundB = false
+          if (data.boissonTaille.id == event.jus.idBoisson) {
+            let cmd = {
+              quantite:nbr,
+              boissonTaille:{
+                id:event.jus.idBoisson
+              }
+            }
+            data.boissonTaille = cmd.boissonTaille
+            //FoundB=true
+            /* if (FoundB == false) {
+              tabB.push(cmd)
+            } */
+          }
+
+        })
       }
     }
-    console.log()
-    //----------------------------------VALIDATION-------------------------------------
+   
 
     this.ShowError(this.tab)
   }
   ShowError(tab: any[]) {
-    let totalNbr = 0
     tab.forEach(data => {
+      let totalNbr = 0
       let tabB: any[] = data.boisson
       tabB.forEach(boisson => {
         totalNbr += boisson.nbr
-        if (data.quantite == totalNbr) {
-          this.message = 'matna'
-         // alert('matna')
-
-        }
-        else if(boisson.nbr>boisson.stock){
+        if(boisson.nbr>boisson.stock){
           this.message='diekhna'
           //alert('diekhna')
-
         }
         else if (data.quantite < totalNbr) {
-          this.message = 'Dafa eupp'
-          //alert('dafa eupp')
-
+         this.toast.error({detail:"Error message", summary:"Vous avez dépassé le nombre de boisson", duration:3000})
         }
         else {
           this.message = ''
@@ -239,4 +271,8 @@ export class DetailsComponent implements OnInit {
     })
   }
 
+  recupObjCmd(event:any){
+   
+  }
+  
 }

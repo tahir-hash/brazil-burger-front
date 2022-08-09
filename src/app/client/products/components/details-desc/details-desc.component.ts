@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
+import { BoissonTaille } from 'src/app/shared/models/boisson-taille';
 import { BurgerCommande } from 'src/app/shared/models/burger-commande';
+import { MenuCommande } from 'src/app/shared/models/menu-commande';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { Produit } from '../../../../shared/models/produit';
 
@@ -10,11 +13,13 @@ import { Produit } from '../../../../shared/models/produit';
 })
 export class DetailsDescComponent implements OnInit {
 @Input() details:Produit| undefined = undefined;
+@Input() commandeMenuBoissonTailles:BoissonTaille[] = [];
+
  btnQte=1;
 @Output() btnQteChange = new EventEmitter<number>();
-constructor(private cart:CartService) { }
+constructor(private cart:CartService,private toast: NgToastService) { }
   attr_dis=false;
-  
+  cmdMenuBoissonTailles: BoissonTaille[]= []
   ngOnInit(): void {
   }
   tailleCtr(event:number)
@@ -39,15 +44,25 @@ constructor(private cart:CartService) { }
         burger: det
       }
       this.cart.addBurger(obj)
+      this.toast.success({detail:"Ajout reussi", summary:"Vous avez ajouté le produit avec succès", duration:3000})
     }
     if(det?.type=='menu'){
       
-      let obj={
+      let obj:MenuCommande={
         quantite:this.btnQte,
-        menu: det
+        menu: {
+          id:Number(det.id),
+          image:det.image,
+          type:det.type,
+          prix:det.prix,
+          commandeMenuBoissonTailles:this.commandeMenuBoissonTailles
+        }
       }
       this.cart.addMenu(obj)
+      this.toast.success({detail:"Ajout reussi", summary:"Vous avez ajouté le produit avec succès", duration:3000})
     }
-    
+    console.log(this.cart.Panier.value)
   }
+
+  
 }

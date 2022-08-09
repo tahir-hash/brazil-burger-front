@@ -6,6 +6,7 @@ import { SecuriteComponent } from './securite.component';
 import { LoginComponent } from './pages/login/login.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { LayoutModule } from '../layout/layout.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LayoutModule } from '../layout/layout.module';
   imports: [
     CommonModule,
     SecuriteRoutingModule,
-    LayoutModule
+    LayoutModule,
+    FormsModule,
   ],
   exports: [
     LayoutModule

@@ -139,7 +139,7 @@ export class CartService {
     })
     this.Panier.value.menuCommandes?.map(data=>{
       if(data.menu.prix){
-        total+=data.menu.prix;
+        total+=data.menu.prix*data.quantite;
       }
     })
     return total;

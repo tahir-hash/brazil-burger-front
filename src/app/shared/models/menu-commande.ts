@@ -3,5 +3,5 @@ import { Produit } from "./produit"
 
 export interface MenuCommande {
     quantite: number
-    menu:Produit
+    menu:Menu
 }

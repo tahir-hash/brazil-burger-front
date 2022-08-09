@@ -12,6 +12,7 @@ export class BoissonsComponent implements OnInit {
   @Input() otherBoisson:Boisson | undefined = undefined;
   @Input() juice: any |undefined = undefined;
   @Output() juiceChanged: EventEmitter<any> = new EventEmitter();
+ attr_dis=true
   qte=0
   constructor() { }
 
@@ -27,6 +28,10 @@ export class BoissonsComponent implements OnInit {
   {
     this.quantity=event
     this.juiceChanged.emit(this.quantity);
+  }
+
+  validDis(event:any){
+    alert('ok')
   }
  
 }
