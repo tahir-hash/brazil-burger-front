@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommandeService } from 'src/app/shared/services/commande.service';
 
 @Component({
   selector: 'mtm-mes-commandes',
@@ -11,9 +12,13 @@ export class MesCommandesComponent implements OnInit {
   valide = "VALIDEE"
   annule = "ANNULEE"
 
-  constructor() { }
+
+  constructor(private commandeServ:CommandeService) { }
 
   ngOnInit(): void {
+   /*  this.commandeServ.getOwnCommande().subscribe(
+      data=> console.log(data)
+    ) */
   }
 
 }

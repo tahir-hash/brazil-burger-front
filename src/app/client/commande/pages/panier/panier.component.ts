@@ -56,17 +56,16 @@ export class PanierComponent implements OnInit {
   result(activeTab: string) {
     this.activeTab = activeTab;
   }
-ok=this.cart.Panier.value
   validCmd(){
     if(this.token.isConnect()){
       let test= {
         id:36
       }
       this.cart.Panier.value.zone=test
-          console.log()
+      
       this.commandeServ.saveCart(this.cart.Panier.value)
       this.cart.emptyCart(this.items);
-      //this.router.navigate(['/client/products/catalogue']);
+      this.router.navigate(['/client/products/catalogue']);
       this.toast.success({detail:"Commande Validée", summary:"Votre commande a été validéé avec succès!!!", position:'tl',duration:3000})
     }
     else{

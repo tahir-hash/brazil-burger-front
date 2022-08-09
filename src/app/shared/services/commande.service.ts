@@ -11,6 +11,7 @@ import { TokenService } from './token.service';
 export class CommandeService {
 
   private urlCmd="https://tahirbrazilburger.herokuapp.com/api/commandes";
+  private urlCmdOwn="https://tahirbrazilburger.herokuapp.com/api/clients/4/commandes";
 
   constructor(private toast: NgToastService,private http: HttpClient, private token:TokenService) { }
 
@@ -24,5 +25,16 @@ export class CommandeService {
     }
    return this.http.post<any>(this.urlCmd, JSON.stringify(obj),headersOptions)
   }
+
+  /* getOwnCommande(){
+    const headersOptions = {
+      headers: new HttpHeaders({
+         'Content-Type': 'application/json',
+         'Authorization': `Bearer ${this.token.getToken()}`
+      })
+    }
+    console.log(headersOptions)
+   return this.http.get<any>(this.urlCmdOwn,headersOptions)
+  } */
 
 }

@@ -26,11 +26,13 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light lien" routerLink="/client/commande/mescmd"
-            >Mes commandes</a
-          >
-        </li>
-        <li class="nav-item">
+            <a class="nav-link text-light lien" routerLink="/client/commande/mescmd"
+              >Mes commandes</a
+            >
+          </li>
+        <ng-container >
+          
+          <li class="nav-item">
           <a class="nav-link text-light lien" routerLink="/securite/login"
             >S'identifier</a
           >
@@ -40,7 +42,10 @@
             >S'inscrire</a
           >
         </li>
+        </ng-container>
+        
       </ul>
+      <button >logout</button>
       <form class="d-flex">
         <a routerLink="/client/commande/panier"class="btn btn-outline-dark" type="submit">
           <i class="bi-cart-fill me-1"></i>Cart<span

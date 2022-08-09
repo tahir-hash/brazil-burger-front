@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { TokenService } from 'src/app/shared/services/token.service';
 
 @Component({
   selector: 'mtm-header',
@@ -8,7 +9,8 @@ import { CartService } from 'src/app/shared/services/cart.service';
 })
 export class HeaderComponent implements OnInit {
 count:any=0
-  constructor(private cart:CartService) { }
+  constructor(private cart:CartService,private token:TokenService) { }
+  //connect:boolean = this.token.isConnect();
 
   ngOnInit(): void {
     this.cart.Panier.subscribe(info=>{
@@ -19,5 +21,9 @@ count:any=0
       
     })
   }
+
+  /* logOut(){
+    this.token.logout()
+  } */
 
 }
